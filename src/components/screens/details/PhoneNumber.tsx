@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { SafeAreaView, StyleSheet, Text } from "react-native";
+import { SafeAreaView, StyleSheet, Text, View } from "react-native";
 import {
   useFonts,
   Poppins_100Thin,
@@ -17,6 +17,9 @@ import { ethnicOrigin } from "../../../data/ProfileQuestions";
 import React from "react";
 import { Ionicons } from "@expo/vector-icons";
 import { RouteProp, useRoute } from "@react-navigation/native";
+import { InputField } from "../../common/InputField";
+import CommonButton from "../../common/CommonButton";
+import PhoneNumberInput from "../onBoarding/components/PhoneNumberInput";
 interface RouteParams {
   back: number;
 }
@@ -30,7 +33,7 @@ const PhoneNumber = (props: any) => {
     Poppins_700Bold,
     Poppins_800ExtraBold,
   });
-  const [selectedEthnicOrigin, setSelectEthinicOrigin] = useState("");
+  const [phone, setPhone] = useState("");
   const route = useRoute<RouteProp<Record<string, RouteParams>, string>>();
   const { back } = route.params;
 
@@ -43,6 +46,7 @@ const PhoneNumber = (props: any) => {
       props.navigation.navigate("Filters");
     }
   };
+  console.log(back);
 
   return (
     <SafeAreaView style={styles.container}>
@@ -54,14 +58,32 @@ const PhoneNumber = (props: any) => {
           color="black"
           style={{ position: "absolute", left: 0 }}
         />
-        <Question
-          data={ethnicOrigin}
-          setSelected={setSelectEthinicOrigin}
-          heading="Ethnic Origin"
-          subheading="Select ethnic Origin"
-          addSearch={true}
-        />
+        <View style={styles.contentWrapper}>
+          <Text
+            style={{
+              fontFamily: "Poppins_700Bold",
+              fontSize: 24,
+              color: AppColors.blackColor,
+            }}
+          >
+            Tell us your Phone Number
+          </Text>
+          <Text
+            style={{
+              fontFamily: "Poppins_400Regular",
+              fontSize: 12,
+              color: AppColors.secondaryText,
+              marginVertical: 10,
+            }}
+          >
+            Please enter your phone number
+          </Text>
+          <PhoneNumberInput onChangeText={setPhone} text={phone} />
+        </View>
       </ScrollView>
+      <View style={{ padding: 15 }}>
+        <CommonButton title={"Done"} pressHandler={backHandler} />
+      </View>
     </SafeAreaView>
   );
 };
@@ -75,6 +97,10 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
+  },
+  contentWrapper: {
+    padding: 15,
+    marginTop: 60,
   },
 });
 

@@ -72,11 +72,61 @@ const Settings = (props: any) => {
         >
           Personal Information
         </Text>
-        <Filter title={"Full Name"} content={"Smith"} />
-        <Filter title={"Date of Birth"} content={"18 Oct, 2000"} />
-        <Filter title={"Gender"} content={"Female"} />
-        <Filter title={"Email"} content={"larry233@gmail.com"} />
-        <Filter title={"Phone Number"} content={"+92 3167473036"} />
+        <Filter
+          title={"Full Name"}
+          content={"Smith"}
+          pressHandler={() =>
+            props.navigation.navigate(
+              "Details",
+              { screen: "Name" },
+              { back: 1 }
+            )
+          }
+        />
+        <Filter
+          title={"Date of Birth"}
+          content={"18 Oct, 2000"}
+          pressHandler={() =>
+            props.navigation.navigate(
+              "Details",
+              { screen: "DateOfBirth" },
+              { back: 1 }
+            )
+          }
+        />
+        <Filter
+          title={"Gender"}
+          content={"Female"}
+          pressHandler={() =>
+            props.navigation.navigate(
+              "Details",
+              { screen: "Gender" },
+              { back: 0 }
+            )
+          }
+        />
+        <Filter
+          title={"Email"}
+          content={"larry233@gmail.com"}
+          pressHandler={() =>
+            props.navigation.navigate(
+              "Details",
+              { screen: "Email" },
+              { back: 0 }
+            )
+          }
+        />
+        <Filter
+          title={"Phone Number"}
+          content={"+92 3167473036"}
+          pressHandler={() =>
+            props.navigation.navigate(
+              "Details",
+              { screen: "PhoneNumber" },
+              { back: 0 }
+            )
+          }
+        />
 
         {/* notifications */}
         <Text
@@ -107,7 +157,17 @@ const Settings = (props: any) => {
         >
           Account
         </Text>
-        <Filter title={"Language"} content={"English"} />
+        <Filter
+          title={"Language"}
+          content={"English"}
+          pressHandler={() =>
+            props.navigation.navigate(
+              "Details",
+              { screen: "Language" },
+              { back: 1 }
+            )
+          }
+        />
         <Filter
           title={"Restore Purchases"}
           content={"Restore your subscription"}

@@ -45,6 +45,7 @@ const Name = (props: any) => {
       props.navigation.navigate("Filters");
     }
   };
+  console.log(back);
 
   return (
     <SafeAreaView style={styles.container}>
