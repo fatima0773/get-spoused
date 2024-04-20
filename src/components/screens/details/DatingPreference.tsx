@@ -12,8 +12,6 @@ import {
 } from "@expo-google-fonts/poppins";
 import { AppColors } from "../../../utility/AppColors";
 import { ScrollView } from "react-native-virtualized-view";
-import Question from "../onBoarding/components/Question";
-import { ethnicOrigin } from "../../../data/ProfileQuestions";
 import React from "react";
 import { Ionicons } from "@expo/vector-icons";
 import { RouteProp, useRoute } from "@react-navigation/native";
@@ -22,7 +20,7 @@ import OptionSelect from "../../common/OptionSelect";
 interface RouteParams {
   back: number;
 }
-const Drink = (props: any) => {
+const DatingPreference = (props: any) => {
   useFonts({
     Poppins_100Thin,
     Poppins_300Light,
@@ -32,7 +30,7 @@ const Drink = (props: any) => {
     Poppins_700Bold,
     Poppins_800ExtraBold,
   });
-  const [selectedDrink, setSelectedDrink] = useState("");
+  const [selectedDatingPreference, setSelectedDatingPreference] = useState("");
   const route = useRoute<RouteProp<Record<string, RouteParams>, string>>();
   const { back } = route.params;
 
@@ -48,28 +46,39 @@ const Drink = (props: any) => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView style={{ padding: 5 }}>
+      <ScrollView style={{ padding: 15 }}>
         <Ionicons
           name="chevron-back"
           size={34}
           onPress={backHandler}
           color="black"
-          style={{ position: "absolute", left: 0 }}
+          style={{ marginVertical: 10 }}
         />
-        <Question
-          data={["Yes", "No"]}
-          setSelected={setSelectedDrink}
-          heading="Do you Drink?"
-          subheading="Select the option that describes you well"
-          addSearch={false}
+        <Text
+          style={{
+            fontFamily: "Poppins_700Bold",
+            fontSize: 24,
+            color: AppColors.blackColor,
+          }}
         >
-          <OptionSelect
-            options={["Yes", "No"]}
-            setSelected={(value: string) => {
-              console.log(value);
-            }}
-          />
-        </Question>
+          What Kind Of Partner Do You Prefer?
+        </Text>
+        <Text
+          style={{
+            fontFamily: "Poppins_400Regular",
+            fontSize: 12,
+            color: AppColors.secondaryText,
+            marginVertical: 10,
+          }}
+        >
+          Who would you like to date
+        </Text>
+        <OptionSelect
+          options={["Male", "Female", "Transgender"]}
+          setSelected={(value: string) => {
+            console.log(value);
+          }}
+        />
       </ScrollView>
       <View style={{ padding: 15 }}>
         <CommonButton title={"Done"} pressHandler={backHandler} />
@@ -88,6 +97,10 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
   },
+  contentWrapper: {
+    padding: 15,
+    marginTop: 60,
+  },
 });
 
-export default Drink;
+export default DatingPreference;

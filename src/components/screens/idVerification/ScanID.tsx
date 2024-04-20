@@ -17,15 +17,9 @@ import {
   Poppins_700Bold,
   Poppins_800ExtraBold,
 } from "@expo-google-fonts/poppins";
-import { ScrollView } from "react-native-virtualized-view";
 import { AppColors } from "../../../utility/AppColors";
 import { Ionicons } from "@expo/vector-icons";
-import { FULL_HEIGHT } from "../../../utility/Constant";
-import { InputField } from "../../common/InputField";
 import CommonButton from "../../common/CommonButton";
-import { IssueCountry } from "./components/IssueCountry";
-import UploadOption from "./components/UploadOption";
-
 const ScanID = (props: any) => {
   useFonts({
     Poppins_100Thin,

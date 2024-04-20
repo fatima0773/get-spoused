@@ -18,6 +18,7 @@ import {
   Poppins_500Medium,
   Poppins_600SemiBold,
 } from "@expo-google-fonts/poppins";
+import { EvilIcons } from "@expo/vector-icons";
 
 const GetStarted = (props: any) => {
   useFonts({
@@ -40,6 +41,7 @@ const GetStarted = (props: any) => {
           fontFamily: "Poppins_300Light",
           fontSize: 30,
           marginBottom: 30,
+          marginTop: 30,
         }}
       >
         Date With Purpose!
@@ -74,6 +76,23 @@ const GetStarted = (props: any) => {
           }}
         >
           Continue with Google
+        </Text>
+      </TouchableOpacity>
+
+      {/* continue with facebook */}
+      <TouchableOpacity
+        style={[styles.button, { backgroundColor: "rgba(22, 126, 230, 1)" }]}
+      >
+        <EvilIcons name="sc-facebook" size={24} color="white" />
+        <Text
+          style={{
+            color: AppColors.whiteColor,
+            fontFamily: "Poppins_500Medium",
+            fontSize: 14,
+            marginHorizontal: 10,
+          }}
+        >
+          Continue with Facebook
         </Text>
       </TouchableOpacity>
 
@@ -150,6 +169,7 @@ const styles = StyleSheet.create({
   },
   logo: {
     width: 250,
+    marginTop: 50,
   },
   button: {
     width: "80%",

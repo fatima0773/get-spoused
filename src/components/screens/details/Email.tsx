@@ -12,8 +12,6 @@ import {
 } from "@expo-google-fonts/poppins";
 import { AppColors } from "../../../utility/AppColors";
 import { ScrollView } from "react-native-virtualized-view";
-import Question from "../onBoarding/components/Question";
-import { ethnicOrigin } from "../../../data/ProfileQuestions";
 import React from "react";
 import { Ionicons } from "@expo/vector-icons";
 import { RouteProp, useRoute } from "@react-navigation/native";
@@ -40,12 +38,11 @@ const Email = (props: any) => {
     if (back === 0) {
       props.navigation.navigate("ViewProfile");
     } else if (back === 1) {
-      props.navigation.navigate("Setting");
+      props.navigation.navigate("Settings");
     } else if (back === 2) {
-      props.navigation.navigate("Filters");
+      props.navigation.navigate("Tab", { screen: "Filters" });
     }
   };
-  console.log(back);
 
   return (
     <SafeAreaView style={styles.container}>
@@ -67,18 +64,9 @@ const Email = (props: any) => {
           >
             Email
           </Text>
-          <Text
-            style={{
-              fontFamily: "Poppins_400Regular",
-              fontSize: 12,
-              color: AppColors.secondaryText,
-              marginVertical: 10,
-            }}
-          >
-            Enter Email
-          </Text>
           <InputField
-            placeholder="Enter Here"
+            label="Enter Email"
+            placeholder="Write Here"
             text={email}
             onChangeText={setEmail}
           />
@@ -102,7 +90,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   contentWrapper: {
-    padding: 15,
+    padding: 5,
     marginTop: 60,
   },
 });

@@ -30,6 +30,7 @@ const ChatSender = (props: any) => {
               name="attachment"
               size={20}
               color={AppColors.greyOutline}
+              style={{ marginRight: 10 }}
             />
           </View>
           <View

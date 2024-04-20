@@ -41,7 +41,7 @@ const VerificationCode = (props: any) => {
             marginBottom: 40,
           }}
         >
-          Enter the OTP sent to{" "}
+          Enter the one-time code sent to{" "}
           <Text
             style={{
               color: AppColors.appThemeColor,
@@ -50,7 +50,9 @@ const VerificationCode = (props: any) => {
               marginVertical: 10,
               marginBottom: 40,
             }}
-          ></Text>
+          >
+            Hello@gmail.com
+          </Text>
         </Text>
         <OtpInput
           numberOfDigits={5}

@@ -45,62 +45,6 @@ const ViewProfile = (props: any) => {
   });
 
   const [isEdit, setIsEdit] = useState(false);
-  const [user, setUser] = useState({
-    name: "Marcelina",
-    age: 23,
-    profession: "UI/UX Designer",
-    education: "Secondary School",
-    image: AppImages.USER_LARRY,
-    interests: ["Basketball", "Surfing", "Baking", "Junk Food", "Meat Lover"],
-    aboutMe: ["Secondary School", "Arries", "Single"],
-    bio: "Qui id non deleniti ipsa rem praesentium quaerat. Minus sit id vitae in et maiores quisquam consectetur. Quia aliquid quibusdam impedit laudantium. Sint porro dolorum ea qui enim id quia praesentium dolor. Quo voluptatibus corrupti voluptatem aut at molestiae facilis temporibus dignissimos. Dolores ad libero fugit voluptates.",
-    photos: [
-      AppImages.USER_PHOTOS,
-      AppImages.USER_PHOTOS,
-      AppImages.USER_PHOTOS,
-      AppImages.USER_PHOTOS,
-    ],
-    country: "Pakistan",
-    away: "3.2 Km",
-    height: "5.5’",
-  });
-
-  const renderAboutMe = ({ item }: any) => {
-    return (
-      <View style={styles.roundContainer}>
-        <Text
-          style={{
-            fontFamily: "Poppins_500Medium",
-            color: AppColors.blackColor,
-            fontSize: 12,
-          }}
-        >
-          {item}
-        </Text>
-      </View>
-    );
-  };
-
-  const renderInterests = ({ item }: any) => {
-    return (
-      <View
-        style={[
-          styles.roundContainer,
-          { backgroundColor: AppColors.appThemeColor },
-        ]}
-      >
-        <Text
-          style={{
-            fontFamily: "Poppins_600SemiBold",
-            color: AppColors.blackColor,
-            fontSize: 12,
-          }}
-        >
-          {item}
-        </Text>
-      </View>
-    );
-  };
 
   return (
     <SafeAreaView style={styles.container}>

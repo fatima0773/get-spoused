@@ -38,9 +38,9 @@ const TravelMode = (props: any) => {
     if (back === 0) {
       props.navigation.navigate("ViewProfile");
     } else if (back === 1) {
-      props.navigation.navigate("Setting");
+      props.navigation.navigate("Settings");
     } else if (back === 2) {
-      props.navigation.navigate("Filters");
+      props.navigation.navigate("Tab", { screen: "Filters" });
     }
   };
 

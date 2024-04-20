@@ -1,8 +1,6 @@
 import React from "react";
-import { useState } from "react";
 import { View, StyleSheet, Text } from "react-native";
 import { SearchBar } from "../../../common/SearchBar";
-import OptionSelect from "../../../common/OptionSelect";
 import { AppColors } from "../../../../utility/AppColors";
 import { useFonts } from "expo-font";
 import {
@@ -10,6 +8,7 @@ import {
   Poppins_600SemiBold,
   Poppins_700Bold,
 } from "@expo-google-fonts/poppins";
+import { s } from "react-native-size-matters";
 
 export default function Question(props: any) {
   useFonts({
@@ -17,16 +16,42 @@ export default function Question(props: any) {
     Poppins_600SemiBold,
     Poppins_700Bold,
   });
-  const [selectedProfession, setSelectProfession] = useState("");
-  const profession = [
-    "Lead Infrastructure Analyst",
-    "Investor Applications Architect",
-    "District Configuration Technician",
-    "Product Operations Strategist",
-    "Direct Usability Facilitator",
-    "Central Solutions Manager",
-    "Internal Integration Designer",
-  ];
+
+  const styles = StyleSheet.create({
+    inputContainer: {
+      color: AppColors.primaryText,
+      borderColor: AppColors.greyOutline,
+      borderWidth: 1,
+      paddingLeft: 10,
+      borderRadius: 10,
+      height: 55,
+      width: "100%",
+      marginVertical: 10,
+      flexDirection: "row",
+      justifyContent: "space-between",
+      alignItems: "center",
+      backgroundColor: AppColors.greyFill,
+      padding: 10,
+    },
+    input: {
+      paddingHorizontal: s(5),
+      width: "80%",
+    },
+    checkbox: {
+      borderRadius: 500,
+    },
+    selectedOption: {
+      borderColor: AppColors.appThemeColor,
+    },
+    container: {
+      flex: 1,
+      backgroundColor: AppColors.whiteColor,
+    },
+    contentWrapper: {
+      padding: 15,
+      marginTop: 30,
+    },
+  });
   return (
     <View style={styles.contentWrapper}>
       <Text
@@ -48,20 +73,8 @@ export default function Question(props: any) {
       >
         {props.subheading}
       </Text>
-      {props.addSearch ? <SearchBar placeholder="Search" /> : null}
-
-      <OptionSelect options={props.data} setSelected={props.setSelected} />
+      {props.addSearch ? <SearchBar placeholder={props.placeholder} /> : null}
+      {props.children}
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: AppColors.whiteColor,
-  },
-  contentWrapper: {
-    padding: 15,
-    marginTop: 30,
-  },
-});

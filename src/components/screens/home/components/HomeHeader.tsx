@@ -14,6 +14,8 @@ import {
   Poppins_700Bold,
   Poppins_800ExtraBold,
 } from "@expo-google-fonts/poppins";
+import { Image } from "react-native";
+import { AppImages } from "../../../../utility/AppImages";
 const HomeHeader = (props: any) => {
   useFonts({
     Poppins_100Thin,
@@ -73,7 +75,11 @@ const HomeHeader = (props: any) => {
           ]}
           onPress={props.filterHandler}
         >
-          <Ionicons name="filter" size={24} color="black" />
+          <Image
+            style={{ width: 17, height: 14 }}
+            source={AppImages.FILTER_ICON}
+            resizeMode="contain"
+          />
         </TouchableOpacity>
       </View>
     </View>

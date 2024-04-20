@@ -1,12 +1,5 @@
-import { useEffect, useState } from "react";
-import {
-  View,
-  StyleSheet,
-  SafeAreaView,
-  Text,
-  // ScrollView,
-  FlatList,
-} from "react-native";
+import { useState } from "react";
+import { View, StyleSheet, SafeAreaView, Text, FlatList } from "react-native";
 import { AppColors } from "../../../utility/AppColors";
 import {
   useFonts,
@@ -34,6 +27,9 @@ import Interests from "./components/Interests";
 import Personality from "./components/Personality";
 import Biography from "./components/Biography";
 import React from "react";
+import OptionSelect from "../../common/OptionSelect";
+import RangeSlider from "react-native-range-slider-expo";
+import HeightInput from "./components/HeightInput";
 
 const CompleteProfile = (props: any) => {
   useFonts({
@@ -43,7 +39,7 @@ const CompleteProfile = (props: any) => {
     Poppins_500Medium,
   });
   const [disableButton, setDisableButton] = useState(false);
-  const [currentStep, setCurrentStep] = useState(0);
+  const [currentStep, setCurrentStep] = useState(1);
   const handleNextStep = () => {
     if (currentStep <= 15) {
       setCurrentStep(currentStep + 1);
@@ -65,6 +61,7 @@ const CompleteProfile = (props: any) => {
   const [selectedRelationGoal, setSelectedRelationGoal] = useState("");
   const [selectedDrink, setSelectedDrink] = useState("");
   const [selectedStar, setSelectedStar] = useState("");
+  const [showDatingPreferences, setShowDatingPreferences] = useState(false);
 
   const allergyOptions = [
     "Peanuts",
@@ -134,34 +131,52 @@ const CompleteProfile = (props: any) => {
         {/* profession */}
         {currentStep === 1 && (
           <Question
-            data={profession}
             setSelected={setSelectProfession}
-            heading="Tell us your Profession"
+            heading="What Is Your Profession?"
             subheading="Select your profession"
             addSearch={true}
-          />
+            placeholder={"Search Profession"}
+          >
+            <OptionSelect
+              options={profession}
+              setSelected={(value: string) => console.log(value)}
+            />
+          </Question>
         )}
 
         {/* ethnic group */}
         {currentStep === 2 && (
           <Question
-            data={ethnicity}
             setSelected={setSelectEthnicity}
-            heading="What’s your Ethnic Group"
+            heading="Which Of These Best Describes You?"
             subheading=" Select your ethnicity"
             addSearch={true}
-          />
+            placeholder={"Search Ethnicity"}
+          >
+            <OptionSelect
+              options={ethnicity}
+              setSelected={(value: string) => {
+                console.log(value);
+              }}
+            />
+          </Question>
         )}
 
         {/* education */}
         {currentStep === 3 && (
           <Question
-            data={education}
             setSelected={setSelectEducation}
-            heading="What’s your Education"
+            heading="What Is Your Highest Degree?"
             subheading="Select your education level"
             addSearch={false}
-          />
+          >
+            <OptionSelect
+              options={education}
+              setSelected={(value: string) => {
+                console.log(value);
+              }}
+            />
+          </Question>
         )}
 
         {/* ethnic origin */}
@@ -169,10 +184,18 @@ const CompleteProfile = (props: any) => {
           <Question
             data={ethnicOrigin}
             setSelected={setSelectEthinicOrigin}
-            heading="What’s your Ethnic Origin"
-            subheading="Select your ethnic Origin"
+            heading="Where Are You From?"
+            subheading="Select Your Home Country"
             addSearch={true}
-          />
+            placeholder="Search Country"
+          >
+            <OptionSelect
+              options={ethnicOrigin}
+              setSelected={(value: string) => {
+                console.log(value);
+              }}
+            />
+          </Question>
         )}
 
         {/* height */}
@@ -185,7 +208,7 @@ const CompleteProfile = (props: any) => {
                 color: AppColors.blackColor,
               }}
             >
-              What’s your Height
+              How Tall Are You?
             </Text>
             <Text
               style={{
@@ -195,97 +218,195 @@ const CompleteProfile = (props: any) => {
                 marginVertical: 10,
               }}
             >
-              Select your height
+              Select Your Height
             </Text>
+            <HeightInput />
           </View>
         )}
 
         {/* marital status */}
         {currentStep === 6 && (
           <Question
-            data={maritalStatus}
             setSelected={setSelectMaritalStatus}
-            heading="Your Marital Status"
-            subheading="Select your marital status."
+            heading="What Is Your Marital Status"
+            subheading="Select Your Marital Status."
             addSearch={false}
-          />
+          >
+            <OptionSelect
+              options={maritalStatus}
+              setSelected={(value: string) => {
+                console.log(value);
+              }}
+            />
+          </Question>
         )}
 
         {/* dating preference */}
         {currentStep === 7 && (
           <Question
-            data={["Male", "Female", "Transgender"]}
             setSelected={setSelectedGender}
-            heading="Who do you like to date?"
-            subheading="When you are getting married?"
+            heading="What Kind Of Partner Do You Prefer?"
+            subheading="When You Are Getting Married?"
             addSearch={false}
-          />
+          >
+            <OptionSelect
+              options={["Male", "Female", "Transgender"]}
+              setSelected={(value: string) => {
+                setShowDatingPreferences(true);
+              }}
+            />
+            {showDatingPreferences && (
+              <View>
+                <View>
+                  <View style={[styles.rowContainer, { marginTop: 35 }]}>
+                    <Text
+                      style={[
+                        styles.standardText,
+                        { fontFamily: "Poppins_700Bold" },
+                      ]}
+                    >
+                      Age
+                    </Text>
+                    <Text
+                      style={[
+                        styles.standardText,
+                        { fontFamily: "Poppins_400Regular" },
+                      ]}
+                    >
+                      Any Age
+                    </Text>
+                  </View>
+                  <RangeSlider
+                    toKnobColor={AppColors.appThemeColor}
+                    fromKnobColor={AppColors.appThemeColor}
+                    min={18}
+                    max={85}
+                    fromValueOnChange={(value) => console.log(value)}
+                    toValueOnChange={(value) => console.log(value)}
+                    initialFromValue={11}
+                    barHeight={4}
+                    showValueLabels={false}
+                  />
+                </View>
+                <Question
+                  setSelected={setSelectEthnicity}
+                  heading="Ethnicity"
+                  subheading="Select Your Ethnicity"
+                  addSearch={true}
+                  placeholder={"Search Ethnic Group"}
+                >
+                  <OptionSelect
+                    options={ethnicity}
+                    setSelected={(value: string) => {
+                      console.log(value);
+                    }}
+                  />
+                </Question>
+              </View>
+            )}
+          </Question>
         )}
 
         {/* smoker */}
         {currentStep === 8 && (
           <Question
-            data={["Yes", "No"]}
             setSelected={setSelectedSmoker}
-            heading="Do you smoke?"
-            subheading="Select the option that describes you well"
+            heading="Do You Smoke?"
+            subheading="Select The Option That Describes You Well"
             addSearch={false}
-          />
+          >
+            <OptionSelect
+              options={["Yes", "No"]}
+              setSelected={(value: string) => {
+                console.log(value);
+              }}
+            />
+          </Question>
         )}
 
         {/* children */}
         {currentStep === 9 && (
           <Question
-            data={["Yes", "No", "Maybe"]}
             setSelected={setSelectedChildren}
-            heading="Do you like to have children"
-            subheading=" Select one of the following options"
+            heading="Do You Like To Have Children"
+            subheading="Select One Of The Following Options"
             addSearch={false}
-          />
+          >
+            <OptionSelect
+              options={["Yes", "No", "Maybe"]}
+              setSelected={(value: string) => {
+                console.log(value);
+              }}
+            />
+          </Question>
         )}
 
         {/* relationship goals */}
         {currentStep === 10 && (
           <Question
-            data={["Marriage", "Long term relationship", "Others"]}
             setSelected={setSelectedRelationGoal}
-            heading="What are you hoping to find?"
-            subheading="Tell us your relationship goals"
+            heading="What Are You Hoping To Find?"
+            subheading="Tell Us Your Relationship Goals"
             addSearch={false}
-          />
+          >
+            <OptionSelect
+              options={["Marriage", "Long term relationship", "Others"]}
+              setSelected={(value: string) => {
+                console.log(value);
+              }}
+            />
+          </Question>
         )}
 
         {/* religion */}
         {currentStep === 11 && (
           <Question
-            data={religion}
             setSelected={setSelectedReligion}
             heading="Your Religion?"
-            subheading="Select the religion that describes you well"
+            subheading="Select The Religion That Describes You Well"
             addSearch={false}
-          />
+          >
+            <OptionSelect
+              options={religion}
+              setSelected={(value: string) => {
+                console.log(value);
+              }}
+            />
+          </Question>
         )}
 
         {/* drink */}
         {currentStep === 12 && (
           <Question
-            data={["Yes", "No"]}
             setSelected={setSelectedDrink}
-            heading="Do you Drink?"
-            subheading="Select the option that describes you well"
+            heading="Do You Drink?"
+            subheading="Select The Option That Describes You Well"
             addSearch={false}
-          />
+          >
+            <OptionSelect
+              options={["Yes", "No"]}
+              setSelected={(value: string) => {
+                console.log(value);
+              }}
+            />
+          </Question>
         )}
 
         {/* star */}
         {currentStep === 13 && (
           <Question
-            data={star}
             setSelected={setSelectedStar}
-            heading="What’s your star sign?"
-            subheading="Select the option that describes you well"
+            heading="What’s Your Star Sign?"
+            subheading="Select The Option That Describes You Well"
             addSearch={false}
-          />
+          >
+            <OptionSelect
+              options={star}
+              setSelected={(value: string) => {
+                console.log(value);
+              }}
+            />
+          </Question>
         )}
 
         {/* interests */}
@@ -323,8 +444,6 @@ const styles = StyleSheet.create({
     marginTop: 30,
   },
   buttonContainer: {
-    // position: "absolute",
-    // bottom: 20,
     width: "100%",
     paddingHorizontal: 15,
   },
@@ -336,6 +455,15 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     marginVertical: 20,
+  },
+  rowContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
+  standardText: {
+    color: AppColors.blackColor,
+    fontSize: 14,
   },
 });
 

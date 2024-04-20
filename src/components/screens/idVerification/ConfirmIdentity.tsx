@@ -37,7 +37,7 @@ const ConfirmIdentity = (props: any) => {
         <Ionicons
           name="chevron-back"
           size={34}
-          onPress={() => props.navigation.navigate("Settings")}
+          onPress={() => props.navigation.navigate("Profile")}
           color="black"
           style={{ position: "absolute", left: 0 }}
         />

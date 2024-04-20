@@ -1,15 +1,19 @@
 import React, { useState } from "react";
-import { View, StyleSheet, Text, FlatList } from "react-native";
+import {
+  View,
+  StyleSheet,
+  Text,
+  FlatList,
+  TouchableOpacity,
+} from "react-native";
 import { useFonts } from "expo-font";
 import { Poppins_500Medium } from "@expo-google-fonts/poppins";
-import { TextInput } from "react-native";
 import { s } from "react-native-size-matters";
-// import { CheckBox } from "@rneui/themed";
 import Checkbox from "expo-checkbox";
 import { AppColors } from "../../../../utility/AppColors";
 
 const PlanSelect = ({ options, setSelected }: any) => {
-  const [selectedOption, setSelectedOption] = useState(null);
+  const [selectedOption, setSelectedOption] = useState(1);
   useFonts({
     Poppins_500Medium,
   });
@@ -18,15 +22,14 @@ const PlanSelect = ({ options, setSelected }: any) => {
     inputContainer: {
       color: AppColors.primaryText,
       borderColor: AppColors.greyOutline,
-      borderWidth: 1,
       paddingLeft: 10,
       borderRadius: 10,
-      width: "100%",
+      width: "90%",
       marginVertical: 10,
       flexDirection: "row",
       justifyContent: "space-between",
       alignItems: "center",
-      backgroundColor: AppColors.greyFill,
+      backgroundColor: "rgba(255, 255, 255, 0.3)",
       padding: 10,
       paddingVertical: 20,
     },
@@ -39,6 +42,7 @@ const PlanSelect = ({ options, setSelected }: any) => {
     },
     selectedOption: {
       borderColor: AppColors.appThemeColor,
+      backgroundColor: AppColors.whiteColor,
     },
   });
 
@@ -49,7 +53,8 @@ const PlanSelect = ({ options, setSelected }: any) => {
 
   const renderOptions = (option: any, index: any) => {
     return (
-      <View
+      <TouchableOpacity
+        onPress={() => handleOptionChange(option)}
         key={index}
         style={[
           styles.inputContainer,
@@ -81,19 +86,24 @@ const PlanSelect = ({ options, setSelected }: any) => {
         <Checkbox
           style={styles.checkbox}
           value={selectedOption === option.id}
-          onValueChange={() => handleOptionChange(option)}
           color={
             selectedOption === option.id
               ? AppColors.appThemeColor
               : AppColors.greyOutline
           }
         />
-      </View>
+      </TouchableOpacity>
     );
   };
 
   return (
-    <View style={{ marginVertical: 10 }}>
+    <View
+      style={{
+        marginVertical: 10,
+        flex: 1,
+        width: "100%",
+      }}
+    >
       <FlatList
         data={options}
         renderItem={({ item, index }: any) => renderOptions(item, index)}

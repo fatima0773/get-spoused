@@ -11,9 +11,7 @@ import {
 } from "react-native";
 import { AppColors } from "../../../utility/AppColors";
 import { AppImages } from "../../../utility/AppImages";
-import Swiper from "react-native-deck-swiper";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { Entypo } from "@expo/vector-icons";
+import { Ionicons } from "@expo/vector-icons";
 import {
   useFonts,
   Poppins_100Thin,
@@ -24,8 +22,7 @@ import {
   Poppins_700Bold,
   Poppins_800ExtraBold,
 } from "@expo-google-fonts/poppins";
-import { FontAwesome } from "@expo/vector-icons";
-import Header from "../../common/Header";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 import PlanSelect from "./components/PlanSelect";
 
 const PremiumPlan = (props: any) => {
@@ -63,10 +60,34 @@ const PremiumPlan = (props: any) => {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView style={{ padding: 15 }}>
-        <Header
-          title={"Premium Plan"}
-          backHandler={() => props.navigation.navigate("Profile")}
-        />
+        <View style={styles.headerContainer}>
+          <View
+            style={{
+              alignItems: "center",
+              justifyContent: "center",
+              flexDirection: "row",
+            }}
+          >
+            <Ionicons
+              name="chevron-back"
+              size={24}
+              color={AppColors.blackColor}
+              onPress={() => props.navigation.navigate("Profile")}
+            />
+            <Text
+              style={{
+                fontFamily: "Poppins_500Medium",
+                fontSize: 14,
+                marginHorizontal: 10,
+                color: AppColors.blackColor,
+              }}
+            >
+              Premium Plan
+            </Text>
+          </View>
+
+          <MaterialCommunityIcons name="help-circle" size={24} color="black" />
+        </View>
         <Text
           style={{
             fontFamily: "Poppins_700Bold",
@@ -98,8 +119,10 @@ const PremiumPlan = (props: any) => {
           style={{
             backgroundColor: AppColors.appThemeColor,
             padding: 10,
+            paddingRight: 0,
             borderRadius: 20,
             marginTop: 50,
+            flex: 1,
           }}
         >
           <Text
@@ -147,6 +170,11 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     marginVertical: 10,
+  },
+  headerContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
   },
 });
 

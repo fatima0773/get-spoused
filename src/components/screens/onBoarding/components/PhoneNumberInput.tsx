@@ -1,5 +1,11 @@
 import React, { useState } from "react";
-import { Text, TextInput, TouchableOpacity, View } from "react-native";
+import {
+  SafeAreaView,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import { CountryPicker } from "react-native-country-codes-picker";
 import { AppColors } from "../../../../utility/AppColors";
 import { s } from "react-native-size-matters";
@@ -12,7 +18,7 @@ const PhoneNumberInput = (props: any) => {
     Poppins_500Medium,
   });
   return (
-    <View
+    <SafeAreaView
       style={{
         flexDirection: "row",
         width: "100%",
@@ -48,6 +54,32 @@ const PhoneNumberInput = (props: any) => {
         </Text>
       </TouchableOpacity>
       <CountryPicker
+        style={{
+          modal: {
+            height: 500,
+            backgroundColor: AppColors.whiteColor,
+          },
+          backdrop: {
+            backgroundColor: AppColors.transparentBlack,
+          },
+          textInput: {
+            height: 70,
+            borderRadius: 10,
+            paddingLeft: 20,
+          },
+          countryButtonStyles: {
+            height: 70,
+          },
+          searchMessageText: {
+            fontFamily: "Poppins_500Medium",
+          },
+          dialCode: {
+            fontFamily: "Poppins_500Medium",
+          },
+          countryName: {
+            fontFamily: "Poppins_500Medium",
+          },
+        }}
         show={showCountryCode}
         pickerButtonOnPress={(item) => {
           setCountryCode(item.dial_code);
@@ -83,7 +115,7 @@ const PhoneNumberInput = (props: any) => {
           onChangeText={props.onChangeText}
         />
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 export default PhoneNumberInput;

@@ -154,7 +154,10 @@ const Home = (props: any) => {
                     </View>
                   </View>
 
-                  <TouchableOpacity style={styles.iconContainer}>
+                  <TouchableOpacity
+                    style={styles.iconContainer}
+                    onPress={() => props.navigation.navigate("ChatScreen")}
+                  >
                     <MaterialCommunityIcons
                       name="message-text"
                       size={24}

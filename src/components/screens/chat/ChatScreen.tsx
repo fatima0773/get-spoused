@@ -7,6 +7,9 @@ import {
   StyleSheet,
   SafeAreaView,
   Modal,
+  KeyboardAvoidingView,
+  Platform,
+  Pressable,
 } from "react-native";
 import { AppColors } from "../../../utility/AppColors";
 import React, { useEffect, useState } from "react";
@@ -117,31 +120,36 @@ const ChatScreen = (props: any) => {
   return (
     <SafeAreaView style={styles.container}>
       <ChatHeader
-        goBack={() => props.navigation.navigate("Chat")}
+        goBack={() => props.navigation.navigate("Tab")}
         menuHandler={() => setOpenMenu(true)}
       />
-
-      <View style={styles.contentContainer}>
-        <ChatStarter />
-        <View>
-          <FlatList
-            data={messages}
-            renderItem={({ item, index }: any) => renderItem(item, index)}
-            keyExtractor={(item, index) => index.toString()}
+      <KeyboardAvoidingView
+        style={{ flex: 1 }}
+        behavior={Platform.OS === "ios" ? "padding" : "height"}
+        keyboardVerticalOffset={Platform.OS === "ios" ? 0 : -150}
+      >
+        <View style={styles.contentContainer}>
+          <ChatStarter />
+          <View>
+            <FlatList
+              data={messages}
+              renderItem={({ item, index }: any) => renderItem(item, index)}
+              keyExtractor={(item, index) => index.toString()}
+            />
+          </View>
+          <ChatSender
+            isUnmatched={isUnmatched}
+            inputText={inputText}
+            setInputText={setInputText}
+            sendMessage={sendMessage}
+            setIsUnmatched={setIsUnmatched}
           />
         </View>
-        <ChatSender
-          isUnmatched={isUnmatched}
-          inputText={inputText}
-          setInputText={setInputText}
-          sendMessage={sendMessage}
-          setIsUnmatched={setIsUnmatched}
-        />
-      </View>
+      </KeyboardAvoidingView>
 
       {/* main menu */}
       <Modal visible={openMenu} transparent={true}>
-        <View style={styles.overlay}>
+        <Pressable onPress={() => setOpenMenu(false)} style={styles.overlay}>
           <View
             style={{
               backgroundColor: AppColors.whiteColor,
@@ -219,12 +227,15 @@ const ChatScreen = (props: any) => {
               Close
             </Text>
           </View>
-        </View>
+        </Pressable>
       </Modal>
 
       {/* block and report menu */}
       <Modal visible={openBlockMenu} transparent={true}>
-        <View style={styles.overlay}>
+        <Pressable
+          onPress={() => setOpenBlockMenu(false)}
+          style={styles.overlay}
+        >
           <View
             style={{
               backgroundColor: AppColors.whiteColor,
@@ -313,12 +324,12 @@ const ChatScreen = (props: any) => {
               Close
             </Text>
           </View>
-        </View>
+        </Pressable>
       </Modal>
 
       {/* report modal */}
       <Modal visible={openReport} transparent={true}>
-        <View style={styles.overlay}>
+        <Pressable onPress={() => setOpenReport(false)} style={styles.overlay}>
           <View
             style={{
               backgroundColor: AppColors.whiteColor,
@@ -367,7 +378,7 @@ const ChatScreen = (props: any) => {
                 fontFamily: "Poppins_500Medium",
                 marginVertical: 10,
                 paddingTop: 10,
-                paddingLeft: 30,
+                paddingLeft: 10,
               }}
             />
 
@@ -384,12 +395,12 @@ const ChatScreen = (props: any) => {
               Send
             </Text>
           </View>
-        </View>
+        </Pressable>
       </Modal>
 
       {/* unmatch menu */}
       <Modal visible={openUnmatch} transparent={true}>
-        <View style={styles.overlay}>
+        <Pressable onPress={() => setOpenUnmatch(false)} style={styles.overlay}>
           <View
             style={{
               backgroundColor: AppColors.whiteColor,
@@ -450,7 +461,7 @@ const ChatScreen = (props: any) => {
               Close{" "}
             </Text>
           </View>
-        </View>
+        </Pressable>
       </Modal>
     </SafeAreaView>
   );

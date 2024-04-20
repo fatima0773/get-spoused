@@ -12,8 +12,6 @@ import {
 } from "@expo-google-fonts/poppins";
 import { AppColors } from "../../../utility/AppColors";
 import { ScrollView } from "react-native-virtualized-view";
-import Question from "../onBoarding/components/Question";
-import { ethnicOrigin } from "../../../data/ProfileQuestions";
 import React from "react";
 import { Ionicons } from "@expo/vector-icons";
 import { RouteProp, useRoute } from "@react-navigation/native";
@@ -32,7 +30,6 @@ const Bio = (props: any) => {
     Poppins_700Bold,
     Poppins_800ExtraBold,
   });
-  const [selectedEthnicOrigin, setSelectEthinicOrigin] = useState("");
   const route = useRoute<RouteProp<Record<string, RouteParams>, string>>();
   const { back } = route.params;
 
@@ -40,15 +37,15 @@ const Bio = (props: any) => {
     if (back === 0) {
       props.navigation.navigate("ViewProfile");
     } else if (back === 1) {
-      props.navigation.navigate("Setting");
+      props.navigation.navigate("Settings");
     } else if (back === 2) {
-      props.navigation.navigate("Filters");
+      props.navigation.navigate("Tab", { screen: "Filters" });
     }
   };
 
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView style={{ padding: 15 }}>
+      <ScrollView style={{ padding: 5 }}>
         <Ionicons
           name="chevron-back"
           size={34}

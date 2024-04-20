@@ -12,8 +12,6 @@ import {
 } from "@expo-google-fonts/poppins";
 import { AppColors } from "../../../utility/AppColors";
 import { ScrollView } from "react-native-virtualized-view";
-import Question from "../onBoarding/components/Question";
-import { ethnicOrigin } from "../../../data/ProfileQuestions";
 import React from "react";
 import { Ionicons } from "@expo/vector-icons";
 import { RouteProp, useRoute } from "@react-navigation/native";
@@ -40,9 +38,9 @@ const Interest = (props: any) => {
     if (back === 0) {
       props.navigation.navigate("ViewProfile");
     } else if (back === 1) {
-      props.navigation.navigate("Setting");
+      props.navigation.navigate("Settings");
     } else if (back === 2) {
-      props.navigation.navigate("Filters");
+      props.navigation.navigate("Tab", { screen: "Filters" });
     }
   };
 
@@ -58,7 +56,7 @@ const Interest = (props: any) => {
         />
         <Interests />
       </ScrollView>
-      <View style={{ padding: 15 }}>
+      <View style={{ padding: 5 }}>
         <CommonButton title={"Done"} pressHandler={backHandler} />
       </View>
     </SafeAreaView>

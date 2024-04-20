@@ -30,7 +30,7 @@ const Gender = (props: any) => {
     Poppins_700Bold,
     Poppins_800ExtraBold,
   });
-  const [gender, setGender] = useState("");
+  const [selectedGender, setSelectedGender] = useState("");
   const route = useRoute<RouteProp<Record<string, RouteParams>, string>>();
   const { back } = route.params;
 
@@ -38,9 +38,9 @@ const Gender = (props: any) => {
     if (back === 0) {
       props.navigation.navigate("ViewProfile");
     } else if (back === 1) {
-      props.navigation.navigate("Setting");
+      props.navigation.navigate("Settings");
     } else if (back === 2) {
-      props.navigation.navigate("Filters");
+      props.navigation.navigate("Tab", { screen: "Filters" });
     }
   };
 
@@ -48,11 +48,11 @@ const Gender = (props: any) => {
     <SafeAreaView style={styles.container}>
       <ScrollView style={{ padding: 15 }}>
         <Ionicons
-          Gender="chevron-back"
+          name="chevron-back"
           size={34}
           onPress={backHandler}
           color="black"
-          style={{ position: "absolute", left: 0 }}
+          style={{ marginVertical: 10 }}
         />
         <Text
           style={{
@@ -71,11 +71,13 @@ const Gender = (props: any) => {
             marginVertical: 10,
           }}
         >
-          Enter your full Gender.
+          Please Select The Gender
         </Text>
         <OptionSelect
           options={["Male", "Female", "Transgender"]}
-          setSelected={setGender}
+          setSelected={(value: string) => {
+            console.log(value);
+          }}
         />
       </ScrollView>
       <View style={{ padding: 15 }}>

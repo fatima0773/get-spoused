@@ -12,13 +12,12 @@ import {
 } from "@expo-google-fonts/poppins";
 import { AppColors } from "../../../utility/AppColors";
 import { ScrollView } from "react-native-virtualized-view";
-import Question from "../onBoarding/components/Question";
-import { ethnicOrigin } from "../../../data/ProfileQuestions";
 import React from "react";
 import { Ionicons } from "@expo/vector-icons";
 import { RouteProp, useRoute } from "@react-navigation/native";
 import { InputField } from "../../common/InputField";
 import CommonButton from "../../common/CommonButton";
+import HeightInput from "../onBoarding/components/HeightInput";
 interface RouteParams {
   back: number;
 }
@@ -37,15 +36,15 @@ const Height = (props: any) => {
   const { back } = route.params;
 
   const backHandler = () => {
+    console.log(back);
     if (back === 0) {
       props.navigation.navigate("ViewProfile");
     } else if (back === 1) {
-      props.navigation.navigate("Setting");
+      props.navigation.navigate("Settings");
     } else if (back === 2) {
-      props.navigation.navigate("Filters");
+      props.navigation.navigate("Tab", { screen: "Filters" });
     }
   };
-
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView style={{ padding: 15 }}>
@@ -66,21 +65,7 @@ const Height = (props: any) => {
           >
             Height
           </Text>
-          <Text
-            style={{
-              fontFamily: "Poppins_400Regular",
-              fontSize: 12,
-              color: AppColors.secondaryText,
-              marginVertical: 10,
-            }}
-          >
-            Enter height.
-          </Text>
-          <InputField
-            placeholder="Enter Here"
-            text={height}
-            onChangeText={setHeight}
-          />
+          <HeightInput />
         </View>
       </ScrollView>
       <View style={{ padding: 15 }}>
@@ -101,7 +86,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   contentWrapper: {
-    padding: 15,
+    padding: 5,
     marginTop: 60,
   },
 });

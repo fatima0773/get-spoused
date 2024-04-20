@@ -19,4 +19,5 @@ export const AppImages = {
   MATCHED_USER_TWO: require("../assets/images/matched_user_two.jpg"),
   BOOSTING: require("../assets/images/boosting.png"),
   CHECK: require("../assets/images/check.png"),
+  FILTER_ICON: require("../assets/images/filter_icon.png"),
 };

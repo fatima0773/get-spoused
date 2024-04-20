@@ -519,7 +519,7 @@ const styles = StyleSheet.create({
     padding: 15,
     paddingHorizontal: 25,
     backgroundColor: AppColors.greyFill,
-    marginHorizontal: 10,
+    marginRight: 8,
     marginVertical: 10,
     justifyContent: "center",
     alignItems: "center",

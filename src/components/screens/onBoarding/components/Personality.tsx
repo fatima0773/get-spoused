@@ -104,7 +104,7 @@ const Personality = () => {
           color: AppColors.blackColor,
         }}
       >
-        Describe your Personality
+        Describe Your Personality
       </Text>
       <Text
         style={{
@@ -114,7 +114,7 @@ const Personality = () => {
           marginVertical: 10,
         }}
       >
-        Select 5 options that describes you well
+        Select 5 Options That Describes You Well
       </Text>
       <FlatList
         key={selected.length}

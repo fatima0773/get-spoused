@@ -50,7 +50,11 @@ const ProfileHeader = (props: any) => {
           ]}
           onPress={props.filterHandler}
         >
-          <Ionicons name="filter" size={24} color="black" />
+          <Image
+            style={{ width: 17, height: 14 }}
+            source={AppImages.FILTER_ICON}
+            resizeMode="contain"
+          />
         </TouchableOpacity>
         <TouchableOpacity style={styles.boost} onPress={props.boostingHandler}>
           <MaterialCommunityIcons
@@ -115,8 +119,8 @@ const styles = StyleSheet.create({
     padding: 15,
     borderBottomLeftRadius: 20,
     borderBottomRightRadius: 20,
-    paddingTop: 100,
-    paddingBottom: 80,
+    paddingTop: 80,
+    paddingBottom: 67,
   },
   iconContainer: {
     backgroundColor: AppColors.whiteColor,

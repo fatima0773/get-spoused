@@ -55,7 +55,7 @@ const PhoneVerification = (props: any) => {
             marginBottom: 40,
           }}
         >
-          Enter the OTP sent to{" "}
+          Enter verification Code sent to{" "}
           <Text
             style={{
               color: AppColors.appThemeColor,

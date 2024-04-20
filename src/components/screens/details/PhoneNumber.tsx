@@ -12,8 +12,6 @@ import {
 } from "@expo-google-fonts/poppins";
 import { AppColors } from "../../../utility/AppColors";
 import { ScrollView } from "react-native-virtualized-view";
-import Question from "../onBoarding/components/Question";
-import { ethnicOrigin } from "../../../data/ProfileQuestions";
 import React from "react";
 import { Ionicons } from "@expo/vector-icons";
 import { RouteProp, useRoute } from "@react-navigation/native";
@@ -41,13 +39,11 @@ const PhoneNumber = (props: any) => {
     if (back === 0) {
       props.navigation.navigate("ViewProfile");
     } else if (back === 1) {
-      props.navigation.navigate("Setting");
+      props.navigation.navigate("Settings");
     } else if (back === 2) {
-      props.navigation.navigate("Filters");
+      props.navigation.navigate("Tab", { screen: "Filters" });
     }
   };
-  console.log(back);
-
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView style={{ padding: 15 }}>
@@ -99,7 +95,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   contentWrapper: {
-    padding: 15,
+    padding: 5,
     marginTop: 60,
   },
 });

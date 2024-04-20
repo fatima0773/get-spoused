@@ -75,7 +75,7 @@ const Break = (props: any) => {
             styles.lightText,
           ]}
         >
-          need to take a break from spoused? don’t worry. we’ve got you covered
+          Need To Take A Break From Spoused? Don’t Worry. We’ve Got You Covered
         </Text>
 
         <BreakOptions options={breakOptions} setSelected={setSelectedOption} />

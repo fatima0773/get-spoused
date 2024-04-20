@@ -13,10 +13,10 @@ import {
 import { AppColors } from "../../../utility/AppColors";
 import { ScrollView } from "react-native-virtualized-view";
 import React from "react";
-import { Ionicons } from "@expo/vector-icons";
 import { RouteProp, useRoute } from "@react-navigation/native";
 import DateTimePicker from "@react-native-community/datetimepicker";
 import CommonButton from "../../common/CommonButton";
+import { Ionicons } from "@expo/vector-icons";
 interface RouteParams {
   back: number;
 }
@@ -30,7 +30,6 @@ const DateOfBirth = (props: any) => {
     Poppins_700Bold,
     Poppins_800ExtraBold,
   });
-  const [selectedEthnicOrigin, setSelectEthinicOrigin] = useState("");
   const route = useRoute<RouteProp<Record<string, RouteParams>, string>>();
   const { back } = route.params;
   const [date, setDate] = useState(new Date());
@@ -39,9 +38,9 @@ const DateOfBirth = (props: any) => {
     if (back === 0) {
       props.navigation.navigate("ViewProfile");
     } else if (back === 1) {
-      props.navigation.navigate("Setting");
+      props.navigation.navigate("Settings");
     } else if (back === 2) {
-      props.navigation.navigate("Filters");
+      props.navigation.navigate("Tab", { screen: "Filters" });
     }
   };
 
@@ -53,6 +52,13 @@ const DateOfBirth = (props: any) => {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView style={{ padding: 15 }}>
+        <Ionicons
+          name="chevron-back"
+          size={34}
+          onPress={backHandler}
+          color="black"
+          style={{ position: "absolute", left: 0 }}
+        />
         <View style={styles.contentWrapper}>
           <Text
             style={{
@@ -61,7 +67,7 @@ const DateOfBirth = (props: any) => {
               color: AppColors.blackColor,
             }}
           >
-            Tell us your Birthday
+            When Is Your Birthday?
           </Text>
           <Text
             style={{
@@ -101,8 +107,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   contentWrapper: {
-    padding: 15,
-    marginTop: 30,
+    padding: 5,
+    marginTop: 60,
   },
 });
 

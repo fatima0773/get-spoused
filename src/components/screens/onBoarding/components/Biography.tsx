@@ -10,8 +10,6 @@ import {
 } from "react-native";
 import { AppColors } from "../../../../utility/AppColors";
 import { FULL_HEIGHT, FULL_WIDTH } from "../../../../utility/Constant";
-import SwiperFlatList from "react-native-swiper-flatlist";
-import { Ionicons } from "@expo/vector-icons";
 import {
   Poppins_400Regular,
   Poppins_600SemiBold,
@@ -72,7 +70,6 @@ const Biography = (props: any) => {
     input: {
       paddingHorizontal: s(5),
       width: "100%",
-      // height: FULL_HEIGHT / 2,
     },
   });
 
@@ -85,7 +82,7 @@ const Biography = (props: any) => {
           color: AppColors.blackColor,
         }}
       >
-        Describe your Biography
+        Add Biography
       </Text>
       <Text
         style={{
@@ -95,13 +92,13 @@ const Biography = (props: any) => {
           marginVertical: 10,
         }}
       >
-        Select 5 options that describes you well
+        Add Your Bio
       </Text>
       <View style={{ marginVertical: 10 }}>
         <View style={styles.inputContainer}>
           <TextInput
             style={[styles.input, { fontFamily: "Poppins_500Medium" }]}
-            placeholder={"Enter here..."}
+            placeholder={"Write here..."}
             placeholderTextColor={AppColors.greyOutline}
             defaultValue={props.text}
             onChangeText={props.onChangeText}

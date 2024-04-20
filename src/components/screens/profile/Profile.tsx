@@ -10,10 +10,6 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { AppColors } from "../../../utility/AppColors";
-import { AppImages } from "../../../utility/AppImages";
-import Swiper from "react-native-deck-swiper";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { Entypo } from "@expo/vector-icons";
 import {
   useFonts,
   Poppins_100Thin,
@@ -44,6 +40,7 @@ const Profile = (props: any) => {
     <View style={styles.container}>
       <ScrollView>
         <ProfileHeader
+          filterHandler={() => props.navigation.navigate("Filters")}
           viewProfileHandler={() => props.navigation.navigate("ViewProfile")}
           boostingHandler={() => props.navigation.navigate("Boosting")}
         />

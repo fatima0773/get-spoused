@@ -106,7 +106,7 @@ const Registration = (props: any) => {
     }
   };
 
-  const renderImages = ({ item }: any) => {
+  const renderImages = (item: any, index: any) => {
     if (item.type === "addButton") {
       return (
         <TouchableOpacity
@@ -138,15 +138,36 @@ const Registration = (props: any) => {
     } else {
       return (
         <View>
-          <Image
-            source={{ uri: item.image.uri }}
-            style={{
-              width: (FULL_WIDTH - 80) / 2,
-              height: (FULL_WIDTH - 80) / 2,
-              borderRadius: 10,
-              margin: 10,
+          {item.image.uri && (
+            <Image
+              source={{ uri: item.image.uri }}
+              style={{
+                width: (FULL_WIDTH - 80) / 2,
+                height: (FULL_WIDTH - 80) / 2,
+                borderRadius: 10,
+                margin: 10,
+              }}
+            />
+          )}
+
+          <TouchableOpacity
+            onPress={() => {
+              const updatedImages = selectedImages.filter(
+                (img: any, idx: number) => idx !== index
+              );
+              setSelectedImages(updatedImages);
             }}
-          />
+            style={{
+              backgroundColor: "rgba(255, 255, 255, 0.5)",
+              position: "absolute",
+              top: (FULL_WIDTH - 120) / 4,
+              left: (FULL_WIDTH - 120) / 4,
+              padding: 10,
+              borderRadius: 200,
+            }}
+          >
+            <Ionicons name="trash" size={24} color="white" />
+          </TouchableOpacity>
         </View>
       );
     }
@@ -182,7 +203,7 @@ const Registration = (props: any) => {
               color: AppColors.blackColor,
             }}
           >
-            Tell us your Full Name
+            What Is Your Name?
           </Text>
           <Text
             style={{
@@ -192,10 +213,10 @@ const Registration = (props: any) => {
               marginVertical: 10,
             }}
           >
-            Enter your full name.
+            Please enter your full name.
           </Text>
           <InputField
-            placeholder="Enter Here"
+            placeholder="Write here"
             text={fullName}
             onChangeText={setFullName}
           />
@@ -256,7 +277,7 @@ const Registration = (props: any) => {
           <FlatList
             data={flatListData}
             keyExtractor={(item) => item.key}
-            renderItem={renderImages}
+            renderItem={({ item, index }: any) => renderImages(item, index)}
             numColumns={2}
           />
         </View>
@@ -305,7 +326,7 @@ const Registration = (props: any) => {
               color: AppColors.blackColor,
             }}
           >
-            What are you?
+            What Is Your Gender?
           </Text>
           <Text
             style={{
@@ -315,7 +336,7 @@ const Registration = (props: any) => {
               marginVertical: 10,
             }}
           >
-            Please select your gender
+            Please Select Your Gender
           </Text>
           <OptionSelect
             options={["Male", "Female", "Transgender"]}
@@ -334,7 +355,7 @@ const Registration = (props: any) => {
               color: AppColors.blackColor,
             }}
           >
-            Tell us your Phone Number
+            What Is Your Phone Number?
           </Text>
           <Text
             style={{
@@ -344,7 +365,7 @@ const Registration = (props: any) => {
               marginVertical: 10,
             }}
           >
-            Please enter your phone number
+            Please Enter Your Phone Number
           </Text>
           <PhoneNumberInput onChangeText={setPhone} text={phone} />
         </View>

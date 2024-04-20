@@ -40,7 +40,8 @@ const Match = (props: any) => {
         style={{
           justifyContent: "center",
           alignItems: "center",
-          marginTop: 80,
+          marginBottom: 50,
+          flex: 1,
         }}
       >
         <Text style={{ fontFamily: "Poppins_700Bold", fontSize: 24 }}>
@@ -88,10 +89,10 @@ const Match = (props: any) => {
             marginVertical: 20,
           }}
         >
-          You have a new match
+          You Have A New Match
         </Text>
         <Text style={{ fontFamily: "Poppins_500Medium", fontSize: 14 }}>
-          Make a move!
+          Make A Move!
         </Text>
       </View>
       <View

@@ -204,15 +204,6 @@ const Interests = () => {
             {selectedInterests.length} of 15
           </Text>
         </Text>
-        {/* <View
-          style={{
-            flexDirection: "row",
-            justifyContent: "space-between",
-            alignItems: "center",
-            width: FULL_WIDTH,
-            backgroundColor: "red",
-          }}
-        > */}
         <FlatList
           key={selectedInterests.length}
           data={item.interest}
@@ -221,7 +212,6 @@ const Interests = () => {
           numColumns={3}
         />
       </View>
-      // </View>
     );
   };
 
@@ -234,7 +224,7 @@ const Interests = () => {
           color: AppColors.blackColor,
         }}
       >
-        What are your interest?
+        What Are Your Interest?
       </Text>
       <Text
         style={{
@@ -244,7 +234,7 @@ const Interests = () => {
           marginVertical: 10,
         }}
       >
-        Select your interests that describes you well
+        Select Your Interests That Describes You Well
       </Text>
       <SwiperFlatList
         ref={swiperRef}
@@ -274,12 +264,6 @@ const styles = StyleSheet.create({
     borderRadius: 3000,
     padding: 5,
     marginVertical: 20,
-  },
-  button: {
-    backgroundColor: AppColors.appThemeColor,
-    paddingHorizontal: 20,
-    paddingVertical: 10,
-    borderRadius: 5,
   },
 });
 

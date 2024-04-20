@@ -20,8 +20,6 @@ import {
   Poppins_800ExtraBold,
 } from "@expo-google-fonts/poppins";
 import { AppColors } from "../../../utility/AppColors";
-import { Entypo } from "@expo/vector-icons";
-import RangeSlider, { Slider } from "react-native-range-slider-expo";
 import HomeHeader from "./components/HomeHeader";
 import { AppImages } from "../../../utility/AppImages";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
@@ -145,7 +143,10 @@ const UserDetail = (props: any) => {
               </View>
             </View>
 
-            <TouchableOpacity style={styles.iconContainer}>
+            <TouchableOpacity
+              style={styles.iconContainer}
+              onPress={() => props.navigation.navigate("ChatScreen")}
+            >
               <MaterialCommunityIcons
                 name="message-text"
                 size={24}
@@ -444,7 +445,7 @@ const styles = StyleSheet.create({
     padding: 15,
     paddingHorizontal: 25,
     backgroundColor: AppColors.greyFill,
-    marginHorizontal: 10,
+    marginRight: 8,
     marginVertical: 10,
     justifyContent: "center",
     alignItems: "center",

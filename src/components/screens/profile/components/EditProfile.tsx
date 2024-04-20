@@ -248,11 +248,7 @@ const EditProfile = (props: any) => {
         title={"Current Location"}
         content={"00114 Shields Falls"}
         pressHandler={() =>
-          props.navigation.navigate(
-            "Details",
-            { screen: "CurrentLocation" },
-            { back: 0 }
-          )
+          props.navigation.navigate("CurrentLocation", { back: 0 })
         }
       />
       <Filter
@@ -273,71 +269,41 @@ const EditProfile = (props: any) => {
       <Filter
         title={"Name"}
         content={"Larry Smith"}
-        pressHandler={() =>
-          props.navigation.navigate("Details", { screen: "Name" }, { back: 0 })
-        }
+        pressHandler={() => props.navigation.navigate("Name", { back: 0 })}
       />
       <Filter
         title={"Gender"}
         content={"Female"}
-        pressHandler={() =>
-          props.navigation.navigate(
-            "Details",
-            { screen: "Gender" },
-            { back: 0 }
-          )
-        }
+        pressHandler={() => props.navigation.navigate("Gender", { back: 0 })}
       />
       <Filter
         title={"Date of Birth"}
         content={"18 Oct, 2000"}
         pressHandler={() =>
-          props.navigation.navigate(
-            "Details",
-            { screen: "DateOfBirth" },
-            { back: 0 }
-          )
+          props.navigation.navigate("DateOfBirth", { back: 0 })
         }
       />
       <Filter
         title={"Height"}
         content={"163cm (5’4’’)"}
-        pressHandler={() =>
-          props.navigation.navigate(
-            "Details",
-            { screen: "Height" },
-            { back: 0 }
-          )
-        }
+        pressHandler={() => props.navigation.navigate("Height", { back: 0 })}
       />
       <Filter
         title={"Marital Status"}
         content={"Never Married"}
         pressHandler={() =>
-          props.navigation.navigate(
-            "Details",
-            { screen: "MaritalStatus" },
-            { back: 0 }
-          )
+          props.navigation.navigate("MaritalStatus", { back: 0 })
         }
       />
       <Filter
         title={"Children"}
         content={"Doesn’t have children"}
-        pressHandler={() =>
-          props.navigation.navigate(
-            "Details",
-            { screen: "Children" },
-            { back: 0 }
-          )
-        }
+        pressHandler={() => props.navigation.navigate("Children", { back: 0 })}
       />
       <Filter
         title={"Bio"}
         incomplete
-        pressHandler={() =>
-          props.navigation.navigate("Details", { screen: "Bio" }, { back: 0 })
-        }
+        pressHandler={() => props.navigation.navigate("Bio", { back: 0 })}
       />
       <Text
         style={[
@@ -352,38 +318,22 @@ const EditProfile = (props: any) => {
       <Filter
         title={"Religion"}
         content={"Islam"}
-        pressHandler={() =>
-          props.navigation.navigate(
-            "Details",
-            { screen: "Religion" },
-            { back: 0 }
-          )
-        }
+        pressHandler={() => props.navigation.navigate("Religion", { back: 0 })}
       />
       <Filter
         title={"Do You Smoke?"}
         content={"No"}
-        pressHandler={() =>
-          props.navigation.navigate("Details", { screen: "Smoke" }, { back: 0 })
-        }
+        pressHandler={() => props.navigation.navigate("Smoke", { back: 0 })}
       />
       <Filter
         title={"Do You Drink?"}
         content={"No"}
-        pressHandler={() =>
-          props.navigation.navigate("Details", { screen: "Drink" }, { back: 0 })
-        }
+        pressHandler={() => props.navigation.navigate("Drink", { back: 0 })}
       />
       <Filter
         title={"Star Sign"}
         content={"Aries"}
-        pressHandler={() =>
-          props.navigation.navigate(
-            "Details",
-            { screen: "StarSign" },
-            { back: 0 }
-          )
-        }
+        pressHandler={() => props.navigation.navigate("StarSign", { back: 0 })}
       />
 
       <Text
@@ -396,18 +346,24 @@ const EditProfile = (props: any) => {
       >
         Preferences
       </Text>
-      <Filter title={"Who would you like to date?"} content={"Male"} />
-      <Filter title={"Age Preferences"} content={"Any age"} />
+      <Filter
+        title={"Who would you like to date?"}
+        content={"Male"}
+        pressHandler={() =>
+          props.navigation.navigate("DatingPreference", { back: 0 })
+        }
+      />
+      <Filter
+        title={"Age Preferences"}
+        content={"Any age"}
+        pressHandler={() =>
+          props.navigation.navigate("AgePreference", { back: 0 })
+        }
+      />
       <Filter
         title={"Ethnicity"}
         content={"Singapore"}
-        pressHandler={() =>
-          props.navigation.navigate(
-            "Details",
-            { screen: "Ethnicity" },
-            { back: 0 }
-          )
-        }
+        pressHandler={() => props.navigation.navigate("Ethnicity", { back: 0 })}
       />
 
       <Text
@@ -423,23 +379,13 @@ const EditProfile = (props: any) => {
       <Filter
         title={"Interests"}
         content={"Art, Designing and 5 more"}
-        pressHandler={() =>
-          props.navigation.navigate(
-            "Details",
-            { screen: "Interests" },
-            { back: 0 }
-          )
-        }
+        pressHandler={() => props.navigation.navigate("Interests", { back: 0 })}
       />
       <Filter
         title={"Personality Traits"}
         content={"Active Listener, Adventure and 10 more"}
         pressHandler={() =>
-          props.navigation.navigate(
-            "Details",
-            { screen: "PersonalityTraits" },
-            { back: 0 }
-          )
+          props.navigation.navigate("PersonalityTraits", { back: 0 })
         }
       />
       <Text
@@ -455,43 +401,27 @@ const EditProfile = (props: any) => {
       <Filter
         title={"Education"}
         content={"No Preference"}
-        pressHandler={() =>
-          props.navigation.navigate(
-            "Details",
-            { screen: "Education" },
-            { back: 0 }
-          )
-        }
+        pressHandler={() => props.navigation.navigate("Education", { back: 0 })}
       />
       <Filter
         title={"Profession"}
         content={"No Preference"}
         pressHandler={() =>
-          props.navigation.navigate(
-            "Details",
-            { screen: "Profession" },
-            { back: 0 }
-          )
+          props.navigation.navigate("Profession", { back: 0 })
         }
       />
       <Filter
         title={"Job Title"}
         incomplete
-        pressHandler={() =>
-          props.navigation.navigate(
-            "Details",
-            { screen: "JobTitle" },
-            { back: 0 }
-          )
-        }
+        pressHandler={() => props.navigation.navigate("JobTitle", { back: 0 })}
       />
       <Filter
         title={"Employer"}
         incomplete
         pressHandler={() =>
           props.navigation.navigate(
-            "Details",
-            { screen: "Employer" },
+            "Employer",
+
             { back: 0 }
           )
         }
@@ -510,23 +440,13 @@ const EditProfile = (props: any) => {
         title={"Ethnic Origin"}
         content={"Pakistan"}
         pressHandler={() =>
-          props.navigation.navigate(
-            "Details",
-            { screen: "EthnicGroup" },
-            { back: 0 }
-          )
+          props.navigation.navigate("EthnicGroup", { back: 0 })
         }
       />
       <Filter
         title={"Languages"}
         incomplete
-        pressHandler={() =>
-          props.navigation.navigate(
-            "Details",
-            { screen: "Language" },
-            { back: 0 }
-          )
-        }
+        pressHandler={() => props.navigation.navigate("Language", { back: 0 })}
       />
     </View>
   );

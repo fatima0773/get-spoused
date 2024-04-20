@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { SafeAreaView, StyleSheet, Text } from "react-native";
+import { SafeAreaView, StyleSheet, Text, View } from "react-native";
 import {
   useFonts,
   Poppins_100Thin,
@@ -17,6 +17,9 @@ import { ethnicOrigin } from "../../../data/ProfileQuestions";
 import React from "react";
 import { Ionicons } from "@expo/vector-icons";
 import { RouteProp, useRoute } from "@react-navigation/native";
+import RangeSlider from "react-native-range-slider-expo";
+import CommonButton from "../../common/CommonButton";
+
 interface RouteParams {
   back: number;
 }
@@ -33,14 +36,13 @@ const AgePreference = (props: any) => {
   const [selectedEthnicOrigin, setSelectEthinicOrigin] = useState("");
   const route = useRoute<RouteProp<Record<string, RouteParams>, string>>();
   const { back } = route.params;
-
   const backHandler = () => {
     if (back === 0) {
       props.navigation.navigate("ViewProfile");
     } else if (back === 1) {
-      props.navigation.navigate("Setting");
+      props.navigation.navigate("Settings");
     } else if (back === 2) {
-      props.navigation.navigate("Filters");
+      props.navigation.navigate("Tab", { screen: "Filters" });
     }
   };
 
@@ -54,14 +56,57 @@ const AgePreference = (props: any) => {
           color="black"
           style={{ position: "absolute", left: 0 }}
         />
-        <Question
-          data={ethnicOrigin}
-          setSelected={setSelectEthinicOrigin}
-          heading="Ethnic Origin"
-          subheading="Select ethnic Origin"
-          addSearch={true}
-        />
+        <View style={{ padding: 15, marginTop: 50 }}>
+          <Text
+            style={{
+              fontFamily: "Poppins_700Bold",
+              fontSize: 24,
+              color: AppColors.blackColor,
+            }}
+          >
+            What Kind Of Partner Do You Prefer?
+          </Text>
+          <Text
+            style={{
+              fontFamily: "Poppins_400Regular",
+              fontSize: 12,
+              color: AppColors.secondaryText,
+              marginVertical: 10,
+            }}
+          >
+            Who would you like to date
+          </Text>
+          <View style={[styles.rowContainer, { marginTop: 35 }]}>
+            <Text
+              style={[styles.standardText, { fontFamily: "Poppins_700Bold" }]}
+            >
+              Age
+            </Text>
+            <Text
+              style={[
+                styles.standardText,
+                { fontFamily: "Poppins_400Regular" },
+              ]}
+            >
+              Any Age
+            </Text>
+          </View>
+          <RangeSlider
+            toKnobColor={AppColors.appThemeColor}
+            fromKnobColor={AppColors.appThemeColor}
+            min={18}
+            max={85}
+            fromValueOnChange={(value) => console.log(value)}
+            toValueOnChange={(value) => console.log(value)}
+            initialFromValue={11}
+            barHeight={4}
+            showValueLabels={false}
+          />
+        </View>
       </ScrollView>
+      <View style={{ padding: 15 }}>
+        <CommonButton title={"Done"} pressHandler={backHandler} />
+      </View>
     </SafeAreaView>
   );
 };
@@ -75,6 +120,10 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
+  },
+  standardText: {
+    color: AppColors.blackColor,
+    fontSize: 14,
   },
 });
 

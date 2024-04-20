@@ -1,5 +1,12 @@
 import React, { useState } from "react";
-import { SafeAreaView, View, StyleSheet, Text, Modal } from "react-native";
+import {
+  SafeAreaView,
+  View,
+  StyleSheet,
+  Text,
+  Modal,
+  Pressable,
+} from "react-native";
 import {
   useFonts,
   Poppins_100Thin,
@@ -75,56 +82,30 @@ const Settings = (props: any) => {
         <Filter
           title={"Full Name"}
           content={"Smith"}
-          pressHandler={() =>
-            props.navigation.navigate(
-              "Details",
-              { screen: "Name" },
-              { back: 1 }
-            )
-          }
+          pressHandler={() => props.navigation.navigate("Name", { back: 1 })}
         />
         <Filter
           title={"Date of Birth"}
           content={"18 Oct, 2000"}
           pressHandler={() =>
-            props.navigation.navigate(
-              "Details",
-              { screen: "DateOfBirth" },
-              { back: 1 }
-            )
+            props.navigation.navigate("DateOfBirth", { back: 1 })
           }
         />
         <Filter
           title={"Gender"}
           content={"Female"}
-          pressHandler={() =>
-            props.navigation.navigate(
-              "Details",
-              { screen: "Gender" },
-              { back: 0 }
-            )
-          }
+          pressHandler={() => props.navigation.navigate("Gender", { back: 1 })}
         />
         <Filter
           title={"Email"}
           content={"larry233@gmail.com"}
-          pressHandler={() =>
-            props.navigation.navigate(
-              "Details",
-              { screen: "Email" },
-              { back: 0 }
-            )
-          }
+          pressHandler={() => props.navigation.navigate("Email", { back: 1 })}
         />
         <Filter
           title={"Phone Number"}
           content={"+92 3167473036"}
           pressHandler={() =>
-            props.navigation.navigate(
-              "Details",
-              { screen: "PhoneNumber" },
-              { back: 0 }
-            )
+            props.navigation.navigate("PhoneNumber", { back: 1 })
           }
         />
 
@@ -161,16 +142,13 @@ const Settings = (props: any) => {
           title={"Language"}
           content={"English"}
           pressHandler={() =>
-            props.navigation.navigate(
-              "Details",
-              { screen: "Language" },
-              { back: 1 }
-            )
+            props.navigation.navigate("Language", { back: 1 })
           }
         />
         <Filter
           title={"Restore Purchases"}
           content={"Restore your subscription"}
+          pressHandler={() => props.navigation.navigate("ManageSubscription")}
         />
 
         {/* privacy */}
@@ -226,7 +204,7 @@ const Settings = (props: any) => {
         />
         {/* unmatch menu */}
         <Modal visible={isLogout} transparent={true}>
-          <View style={styles.overlay}>
+          <Pressable style={styles.overlay} onPress={() => setIsLogout(false)}>
             <View
               style={{
                 backgroundColor: AppColors.whiteColor,
@@ -282,7 +260,7 @@ const Settings = (props: any) => {
                 Cancel
               </Text>
             </View>
-          </View>
+          </Pressable>
         </Modal>
       </ScrollView>
     </SafeAreaView>

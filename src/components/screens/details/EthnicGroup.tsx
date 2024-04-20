@@ -17,6 +17,7 @@ import { ethnicOrigin } from "../../../data/ProfileQuestions";
 import React from "react";
 import { Ionicons } from "@expo/vector-icons";
 import { RouteProp, useRoute } from "@react-navigation/native";
+import OptionSelect from "../../common/OptionSelect";
 interface RouteParams {
   back: number;
 }
@@ -38,15 +39,14 @@ const EthnicGroup = (props: any) => {
     if (back === 0) {
       props.navigation.navigate("ViewProfile");
     } else if (back === 1) {
-      props.navigation.navigate("Setting");
+      props.navigation.navigate("Settings");
     } else if (back === 2) {
-      props.navigation.navigate("Filters");
+      props.navigation.navigate("Tab", { screen: "Filters" });
     }
   };
-
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView style={{ padding: 15 }}>
+      <ScrollView style={{ padding: 5 }}>
         <Ionicons
           name="chevron-back"
           size={34}
@@ -57,10 +57,17 @@ const EthnicGroup = (props: any) => {
         <Question
           data={ethnicOrigin}
           setSelected={setSelectEthinicOrigin}
-          heading="Ethnic Origin"
-          subheading="Select ethnic Origin"
+          heading="Where Are You From?"
+          subheading="Select Your Home Country"
           addSearch={true}
-        />
+        >
+          <OptionSelect
+            options={ethnicOrigin}
+            setSelected={(value: string) => {
+              console.log(value);
+            }}
+          />
+        </Question>
       </ScrollView>
     </SafeAreaView>
   );

@@ -57,7 +57,7 @@ const ProfileCreationSuccess = (props: any) => {
             marginVertical: 10,
           }}
         >
-          Your profile is successfully Created
+          Your Profile Is Successfully Created
         </Text>
         <Image
           source={AppImages.START_JOURNEY}
@@ -69,7 +69,6 @@ const ProfileCreationSuccess = (props: any) => {
             fontFamily: "Poppins_700Bold",
             fontSize: 24,
             color: AppColors.blackColor,
-            // marginTop: 50,
           }}
         >
           Your Journey Starts Here
