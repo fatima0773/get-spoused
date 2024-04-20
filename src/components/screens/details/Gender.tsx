@@ -74,7 +74,7 @@ const Gender = (props: any) => {
           Please Select The Gender
         </Text>
         <OptionSelect
-          options={["Male", "Female", "Transgender"]}
+          options={["Male", "Female", "Other"]}
           setSelected={(value: string) => {
             console.log(value);
           }}

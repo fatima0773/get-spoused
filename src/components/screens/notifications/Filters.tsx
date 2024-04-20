@@ -95,14 +95,14 @@ const Filters = (props: any) => {
           />
           <Filter
             title={"Ethnicity"}
-            content={"No Limit"}
+            content={"No Preferences"}
             pressHandler={() =>
               props.navigation.navigate("Ethnicity", { back: 2 })
             }
           />
           <Filter
             title={"Select Gender"}
-            content={"No Limit"}
+            content={"No Preferences"}
             pressHandler={() =>
               props.navigation.navigate("DatingPreference", { back: 2 })
             }
@@ -116,11 +116,13 @@ const Filters = (props: any) => {
               fontFamily: "Poppins_700Bold",
               color: AppColors.blackColor,
               fontSize: 18,
+              marginBottom: 43,
+              marginTop: 20,
             }}
           >
             Advance Filters
           </Text>
-          <Text
+          {/* <Text
             style={[
               styles.advanceFilterTitle,
               {
@@ -137,7 +139,7 @@ const Filters = (props: any) => {
             pressHandler={() =>
               props.navigation.navigate("EthnicGroup", { back: 2 })
             }
-          />
+          /> */}
 
           <Text
             style={[
@@ -220,7 +222,7 @@ const Filters = (props: any) => {
             }
           />
           <Filter
-            title={"Ethnic Origin"}
+            title={"Origin"}
             content={"No Preference"}
             isWhite={true}
             pressHandler={() =>

@@ -24,13 +24,9 @@ import {
   Poppins_700Bold,
   Poppins_800ExtraBold,
 } from "@expo-google-fonts/poppins";
-import ProfileHeader from "./components/ProfileHeader";
-import PremiumOverview from "./components/PremiumOverview";
-import PlanOverview from "./components/PlanOverview";
-import { Ionicons } from "@expo/vector-icons";
 import { MaterialIcons } from "@expo/vector-icons";
-import Header from "../../common/Header";
-
+import CrossButton from "../../common/CrossButton";
+import { Feather } from "@expo/vector-icons";
 const Boosting = (props: any) => {
   useFonts({
     Poppins_100Thin,
@@ -49,13 +45,19 @@ const Boosting = (props: any) => {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView style={{ padding: 15 }}>
-        <MaterialIcons
+        <TouchableOpacity
           onPress={() => props.navigation.navigate("Profile")}
-          name="cancel"
-          size={34}
-          color="white"
-          style={{ margin: 15 }}
-        />
+          style={{
+            backgroundColor: AppColors.whiteColor,
+            height: 30,
+            width: 30,
+            borderRadius: 100,
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <Feather name="x" size={20} color="black" />
+        </TouchableOpacity>
         <View
           style={{
             justifyContent: "center",

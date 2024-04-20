@@ -89,6 +89,7 @@ const styles = StyleSheet.create({
   description: {
     color: AppColors.secondaryText,
     fontSize: 12,
+    marginTop: 5,
   },
   title: {
     color: AppColors.blackColor,

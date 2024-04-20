@@ -13,7 +13,6 @@ import {
 import { AppColors } from "../../../utility/AppColors";
 import { ScrollView } from "react-native-virtualized-view";
 import Question from "../onBoarding/components/Question";
-import { ethnicOrigin } from "../../../data/ProfileQuestions";
 import React from "react";
 import { Ionicons } from "@expo/vector-icons";
 import { RouteProp, useRoute } from "@react-navigation/native";
@@ -58,8 +57,8 @@ const Smoke = (props: any) => {
         />
         <Question
           setSelected={setSelectedSmoker}
-          heading="Do you smoke?"
-          subheading="Select the option that describes you well"
+          heading="Do You Smoke?"
+          subheading="Select From The Options Below"
           addSearch={false}
         >
           <OptionSelect

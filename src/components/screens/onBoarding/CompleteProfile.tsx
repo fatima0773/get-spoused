@@ -250,7 +250,7 @@ const CompleteProfile = (props: any) => {
             addSearch={false}
           >
             <OptionSelect
-              options={["Male", "Female", "Transgender"]}
+              options={["Male", "Female", "Other"]}
               setSelected={(value: string) => {
                 setShowDatingPreferences(true);
               }}
@@ -312,7 +312,7 @@ const CompleteProfile = (props: any) => {
           <Question
             setSelected={setSelectedSmoker}
             heading="Do You Smoke?"
-            subheading="Select The Option That Describes You Well"
+            subheading="Select From The Options Below"
             addSearch={false}
           >
             <OptionSelect
@@ -328,7 +328,7 @@ const CompleteProfile = (props: any) => {
         {currentStep === 9 && (
           <Question
             setSelected={setSelectedChildren}
-            heading="Do You Like To Have Children"
+            heading="Do You Want To Have Children?"
             subheading="Select One Of The Following Options"
             addSearch={false}
           >
@@ -397,7 +397,7 @@ const CompleteProfile = (props: any) => {
           <Question
             setSelected={setSelectedStar}
             heading="What’s Your Star Sign?"
-            subheading="Select The Option That Describes You Well"
+            subheading="Select The Option That Best Describes You"
             addSearch={false}
           >
             <OptionSelect

@@ -1,5 +1,12 @@
 import React, { useState } from "react";
-import { View, StyleSheet, SafeAreaView, Text, Image } from "react-native";
+import {
+  View,
+  StyleSheet,
+  SafeAreaView,
+  Text,
+  Image,
+  TouchableOpacity,
+} from "react-native";
 import BlackHeader from "../../common/BlackHeader";
 import {
   useFonts,
@@ -15,6 +22,7 @@ import Modal from "react-native-modal";
 import { AppImages } from "../../../utility/AppImages";
 import { MaterialIcons } from "@expo/vector-icons";
 import { FULL_WIDTH } from "../../../utility/Constant";
+import CrossButton from "../../common/CrossButton";
 interface RouteParams {
   phone: string;
 }
@@ -131,15 +139,9 @@ const PhoneVerification = (props: any) => {
             width: "90%",
           }}
         >
-          <MaterialIcons
-            name="cancel"
-            size={35}
-            color={AppColors.appThemeColor}
-            style={{ alignSelf: "flex-end", padding: 10 }}
-            onPress={() => {
-              setIsModalVisible(false);
-            }}
-          />
+          <View style={{ alignSelf: "flex-end", padding: 10 }}>
+            <CrossButton buttonHandler={() => setIsModalVisible(false)} />
+          </View>
           <View
             style={{
               width: "100%",

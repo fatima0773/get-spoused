@@ -11,7 +11,6 @@ import { Poppins_500Medium } from "@expo-google-fonts/poppins";
 import { s } from "react-native-size-matters";
 import Checkbox from "expo-checkbox";
 import { AppColors } from "../../../../utility/AppColors";
-
 const PlanSelect = ({ options, setSelected }: any) => {
   const [selectedOption, setSelectedOption] = useState(1);
   useFonts({
@@ -24,7 +23,6 @@ const PlanSelect = ({ options, setSelected }: any) => {
       borderColor: AppColors.greyOutline,
       paddingLeft: 10,
       borderRadius: 10,
-      width: "90%",
       marginVertical: 10,
       flexDirection: "row",
       justifyContent: "space-between",
@@ -32,6 +30,7 @@ const PlanSelect = ({ options, setSelected }: any) => {
       backgroundColor: "rgba(255, 255, 255, 0.3)",
       padding: 10,
       paddingVertical: 20,
+      marginRight: 12,
     },
     input: {
       paddingHorizontal: s(5),
@@ -39,6 +38,7 @@ const PlanSelect = ({ options, setSelected }: any) => {
     },
     checkbox: {
       borderRadius: 500,
+      marginLeft: 94,
     },
     selectedOption: {
       borderColor: AppColors.appThemeColor,
@@ -100,11 +100,10 @@ const PlanSelect = ({ options, setSelected }: any) => {
     <View
       style={{
         marginVertical: 10,
-        flex: 1,
-        width: "100%",
       }}
     >
       <FlatList
+        showsHorizontalScrollIndicator={false}
         data={options}
         renderItem={({ item, index }: any) => renderOptions(item, index)}
         horizontal

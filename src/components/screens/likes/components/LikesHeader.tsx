@@ -1,5 +1,5 @@
 import React from "react";
-import { View, StyleSheet, TouchableOpacity, Text } from "react-native";
+import { View, StyleSheet, TouchableOpacity, Text, Image } from "react-native";
 import {
   useFonts,
   Poppins_100Thin,
@@ -12,6 +12,7 @@ import {
 } from "@expo-google-fonts/poppins";
 import { Ionicons } from "@expo/vector-icons";
 import { AppColors } from "../../../../utility/AppColors";
+import { AppImages } from "../../../../utility/AppImages";
 
 const LikesHeader = (props: any) => {
   useFonts({
@@ -29,7 +30,11 @@ const LikesHeader = (props: any) => {
         style={styles.iconContainer}
         onPress={props.filterHandler}
       >
-        <Ionicons name="filter" size={24} color="black" />
+        <Image
+          style={{ width: 17, height: 14 }}
+          source={AppImages.FILTER_ICON}
+          resizeMode="contain"
+        />
       </TouchableOpacity>
       <Text
         style={{

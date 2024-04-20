@@ -80,7 +80,7 @@ const VerificationCode = (props: any) => {
             textAlign: "center",
           }}
         >
-          Did not get the OTP?
+          Didn’t receive an authentication code?
         </Text>
         <Text
           onPress={() => {}}

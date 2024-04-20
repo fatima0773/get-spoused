@@ -1,5 +1,12 @@
 import React, { useState } from "react";
-import { SafeAreaView, View, StyleSheet, Text, Image } from "react-native";
+import {
+  SafeAreaView,
+  View,
+  StyleSheet,
+  Text,
+  Image,
+  TouchableOpacity,
+} from "react-native";
 import {
   useFonts,
   Poppins_100Thin,
@@ -13,9 +20,8 @@ import {
 import { AppColors } from "../../../utility/AppColors";
 import { AppImages } from "../../../utility/AppImages";
 import { FontAwesome } from "@expo/vector-icons";
-import { MaterialIcons } from "@expo/vector-icons";
 import { TextInput } from "react-native-gesture-handler";
-
+import { Feather } from "@expo/vector-icons";
 const Match = (props: any) => {
   useFonts({
     Poppins_100Thin,
@@ -29,13 +35,21 @@ const Match = (props: any) => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <MaterialIcons
+      <TouchableOpacity
         onPress={() => props.navigation.navigate("Home")}
-        name="cancel"
-        size={34}
-        color="white"
-        style={{ margin: 15 }}
-      />
+        style={{
+          backgroundColor: AppColors.whiteColor,
+          height: 30,
+          width: 30,
+          borderRadius: 100,
+          alignItems: "center",
+          justifyContent: "center",
+          marginLeft: 16,
+          marginTop: 15,
+        }}
+      >
+        <Feather name="x" size={20} color="black" />
+      </TouchableOpacity>
       <View
         style={{
           justifyContent: "center",
@@ -105,7 +119,19 @@ const Match = (props: any) => {
         }}
       >
         <TextInput style={styles.messageInput} placeholder="Message Sabrina" />
-        <FontAwesome name="send" size={24} color="black" />
+        <TouchableOpacity
+          onPress={() => props.navigation.navigate("ChatScreen")}
+          style={{
+            backgroundColor: AppColors.blackColor,
+            height: 35,
+            width: 35,
+            borderRadius: 100,
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <FontAwesome name="send" size={15} color="white" />
+        </TouchableOpacity>
       </View>
     </SafeAreaView>
   );

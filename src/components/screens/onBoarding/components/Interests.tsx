@@ -131,13 +131,14 @@ const Interests = () => {
         key={item}
         style={[
           {
-            backgroundColor: AppColors.greyFill,
+            backgroundColor: "#FAFAFA",
             padding: 10,
-            paddingHorizontal: 10,
-            margin: 5,
+            paddingHorizontal: 20,
+            marginBottom: 12,
+            marginRight: 12,
             borderRadius: 90,
             borderWidth: 1,
-            borderColor: AppColors.greyOutline,
+            borderColor: "rgba(0, 0, 0, 0.05)",
           },
           isSelected && {
             backgroundColor: AppColors.appThemeColor,
@@ -146,7 +147,7 @@ const Interests = () => {
         ]}
         onPress={() => handleAllergyPress(item)}
       >
-        <Text style={{ fontSize: 16, fontFamily: "Poppins_500Medium" }}>
+        <Text style={{ fontSize: 12, fontFamily: "Poppins_600SemiBold" }}>
           {item}
         </Text>
       </TouchableOpacity>
@@ -174,7 +175,7 @@ const Interests = () => {
               swiperRef.current?.scrollToIndex({ index: activeIndex - 1 });
             }}
           />
-          <Text style={{ fontSize: 18, fontFamily: "Poppins_500Medium" }}>
+          <Text style={{ fontSize: 18, fontFamily: "Poppins_700Bold" }}>
             {item.title.toUpperCase()}
           </Text>
           <Ionicons
@@ -234,7 +235,7 @@ const Interests = () => {
           marginVertical: 10,
         }}
       >
-        Select Your Interests That Describes You Well
+        Select Up To 15 Options
       </Text>
       <SwiperFlatList
         ref={swiperRef}

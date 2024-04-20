@@ -58,7 +58,7 @@ const Children = (props: any) => {
         <Question
           setSelected={setValue}
           heading="Do You Want To Have Children?"
-          subheading=" Select one of the following options"
+          subheading="Select One Of The Following Options"
           addSearch={false}
         >
           <OptionSelect

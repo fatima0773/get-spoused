@@ -48,10 +48,10 @@ const ChatScreen = (props: any) => {
   const [openUnmatch, setOpenUnmatch] = useState(false);
   const [inputText, setInputText] = useState("");
   const unmatchOption = [
-    "They were unresponsive",
-    "They were not serious",
-    "They were not polite",
-    "We met in person",
+    "They Were Unresponsive",
+    "They Were Not Serious",
+    "They Were Not Polite",
+    "We Met In Person",
   ];
   const [unmatchReason, setUnmatchReason] = useState("");
   const [isUnmatched, setIsUnmatched] = useState(true);
@@ -434,7 +434,7 @@ const ChatScreen = (props: any) => {
                 lineHeight: 25,
               }}
             >
-              Check any statements which you want to apply
+              Check Each Statement That Applies
             </Text>
             <OptionSelect
               options={unmatchOption}

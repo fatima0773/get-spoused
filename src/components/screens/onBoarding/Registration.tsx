@@ -191,6 +191,15 @@ const Registration = (props: any) => {
         >
           General Information
         </Text>
+        {currentStep === 2 && (
+          <AntDesign
+            name="questioncircle"
+            size={20}
+            color={AppColors.blackColor}
+            onPress={() => {}}
+            style={{ position: "absolute", right: 25 }}
+          />
+        )}
       </View>
       <StepProgress currentStep={currentStep} />
       {/* full name */}
@@ -293,7 +302,7 @@ const Registration = (props: any) => {
               color: AppColors.blackColor,
             }}
           >
-            Tell us your Birthday
+            When Is Your Birthday?
           </Text>
           <Text
             style={{
@@ -303,7 +312,7 @@ const Registration = (props: any) => {
               marginVertical: 10,
             }}
           >
-            You must be 18+ to continue
+            You Must Be 18+ To Continue
           </Text>
           <DateTimePicker
             testID="dateTimePicker"
@@ -339,7 +348,7 @@ const Registration = (props: any) => {
             Please Select Your Gender
           </Text>
           <OptionSelect
-            options={["Male", "Female", "Transgender"]}
+            options={["Male", "Female", "Other"]}
             setSelected={setSelectedGender}
           />
         </View>

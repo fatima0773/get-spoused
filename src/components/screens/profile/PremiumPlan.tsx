@@ -37,7 +37,7 @@ const PremiumPlan = (props: any) => {
   });
   const premiumFeatures = [
     "Unlimited Swipes",
-    "Travel Mode (Passport Location)",
+    "Travel Mode",
     "Filter By Preferences",
     "Rematch",
     "Rewind",
@@ -53,6 +53,11 @@ const PremiumPlan = (props: any) => {
     },
     {
       id: 2,
+      price: 120,
+      duration: "03",
+    },
+    {
+      id: 3,
       price: 120,
       duration: "03",
     },
@@ -109,7 +114,18 @@ const PremiumPlan = (props: any) => {
                 marginLeft: 10,
               }}
             >
-              {item}
+              {item}{" "}
+              {item === "Travel Mode" && (
+                <Text
+                  style={{
+                    color: AppColors.appThemeColor,
+                    fontFamily: "Poppins_400Regular",
+                  }}
+                >
+                  {" "}
+                  (Passport Location)
+                </Text>
+              )}
             </Text>
           </View>
         ))}
@@ -134,7 +150,9 @@ const PremiumPlan = (props: any) => {
           >
             Our Premium Plan:
           </Text>
+          {/* <View> */}
           <PlanSelect options={plans} setSelected={setSelectedPlan} />
+          {/* </View> */}
           <TouchableOpacity
             onPress={() => props.navigation.navigate("Profile")}
             style={{

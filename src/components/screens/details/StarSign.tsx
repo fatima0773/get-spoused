@@ -60,7 +60,7 @@ const StarSign = (props: any) => {
           data={star}
           setSelected={setSelectedStar}
           heading="What’s Your Star Sign?"
-          subheading="Select The Option That Describes You Well"
+          subheading="Select The Option That Best Describes You"
           addSearch={false}
         >
           <OptionSelect

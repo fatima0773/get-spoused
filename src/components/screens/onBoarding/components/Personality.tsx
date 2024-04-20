@@ -73,13 +73,14 @@ const Personality = () => {
         key={item}
         style={[
           {
-            backgroundColor: AppColors.greyFill,
+            backgroundColor: "#FAFAFA",
             padding: 10,
-            paddingHorizontal: 10,
-            margin: 5,
+            paddingHorizontal: 20,
+            marginBottom: 12,
+            marginRight: 12,
             borderRadius: 90,
             borderWidth: 1,
-            borderColor: AppColors.greyOutline,
+            borderColor: "rgba(0, 0, 0, 0.05)",
           },
           isSelected && {
             backgroundColor: AppColors.appThemeColor,
@@ -88,7 +89,7 @@ const Personality = () => {
         ]}
         onPress={() => handleAllergyPress(item)}
       >
-        <Text style={{ fontSize: 16, fontFamily: "Poppins_500Medium" }}>
+        <Text style={{ fontSize: 12, fontFamily: "Poppins_600SemiBold" }}>
           {item}
         </Text>
       </TouchableOpacity>
@@ -104,7 +105,7 @@ const Personality = () => {
           color: AppColors.blackColor,
         }}
       >
-        Describe Your Personality
+        Describe Your{"\n"}Personality
       </Text>
       <Text
         style={{
@@ -114,7 +115,7 @@ const Personality = () => {
           marginVertical: 10,
         }}
       >
-        Select 5 Options That Describes You Well
+        Select 5 Options That Best Describe You
       </Text>
       <FlatList
         key={selected.length}
@@ -130,7 +131,7 @@ const Personality = () => {
 const styles = StyleSheet.create({
   contentWrapper: {
     padding: 15,
-    marginTop: 30,
+    marginTop: 15,
   },
   buttonsContainer: {
     flexDirection: "row",

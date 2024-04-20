@@ -238,7 +238,7 @@ const Settings = (props: any) => {
                   textAlign: "center",
                 }}
               >
-                Are you sure you want to logout?
+                Are You Sure You Want To Log Out?
               </Text>
               <CommonButton
                 title={"Log Out"}
@@ -262,6 +262,7 @@ const Settings = (props: any) => {
             </View>
           </Pressable>
         </Modal>
+        <View style={{ marginBottom: 30 }} />
       </ScrollView>
     </SafeAreaView>
   );

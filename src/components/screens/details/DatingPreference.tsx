@@ -74,7 +74,7 @@ const DatingPreference = (props: any) => {
           Who would you like to date
         </Text>
         <OptionSelect
-          options={["Male", "Female", "Transgender"]}
+          options={["Male", "Female", "Other"]}
           setSelected={(value: string) => {
             console.log(value);
           }}

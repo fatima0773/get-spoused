@@ -1,12 +1,5 @@
 import React, { useState } from "react";
-import {
-  SafeAreaView,
-  View,
-  StyleSheet,
-  Text,
-  Modal,
-  TextInput,
-} from "react-native";
+import { SafeAreaView, View, StyleSheet, Text } from "react-native";
 import {
   useFonts,
   Poppins_100Thin,
@@ -17,11 +10,8 @@ import {
   Poppins_700Bold,
   Poppins_800ExtraBold,
 } from "@expo-google-fonts/poppins";
-import { ScrollView } from "react-native-virtualized-view";
 import { AppColors } from "../../../utility/AppColors";
 import { Ionicons } from "@expo/vector-icons";
-import { FULL_HEIGHT } from "../../../utility/Constant";
-import { InputField } from "../../common/InputField";
 import CommonButton from "../../common/CommonButton";
 import BreakOptions from "./components/BreakOptions";
 
@@ -65,17 +55,19 @@ const Break = (props: any) => {
             styles.heading,
           ]}
         >
-          Take a Break
+          Take A Break
         </Text>
         <Text
           style={[
             {
               fontFamily: "Poppins_500Medium",
+              lineHeight: 20,
             },
             styles.lightText,
           ]}
         >
-          Need To Take A Break From Spoused? Don’t Worry. We’ve Got You Covered
+          Need To Take A break From Spoused?{"\n"}Don’t Worry. We’ve Got You
+          Covered
         </Text>
 
         <BreakOptions options={breakOptions} setSelected={setSelectedOption} />
@@ -104,7 +96,7 @@ const styles = StyleSheet.create({
   },
   lightText: {
     color: AppColors.secondaryText,
-    fontSize: 14,
+    fontSize: 12,
   },
 });
 export default Break;

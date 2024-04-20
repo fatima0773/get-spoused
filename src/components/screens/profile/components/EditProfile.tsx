@@ -220,12 +220,16 @@ const EditProfile = (props: any) => {
               { fontFamily: "Poppins_500Medium", marginVertical: 5 },
             ]}
           >
-            Verify your ID to get more likes and matches
+            Verify Your ID To Get More Likes And Matches
           </Text>
           <Text
             style={[
               styles.description,
-              { fontFamily: "Poppins_700Bold", color: AppColors.appThemeColor },
+              {
+                fontFamily: "Poppins_700Bold",
+                color: AppColors.appThemeColor,
+                marginTop: 10,
+              },
             ]}
           >
             Complete Profile
@@ -382,7 +386,7 @@ const EditProfile = (props: any) => {
         pressHandler={() => props.navigation.navigate("Interests", { back: 0 })}
       />
       <Filter
-        title={"Personality Traits"}
+        title={"Personality"}
         content={"Active Listener, Adventure and 10 more"}
         pressHandler={() =>
           props.navigation.navigate("PersonalityTraits", { back: 0 })

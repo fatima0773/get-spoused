@@ -1,12 +1,5 @@
 import React, { useState } from "react";
-import {
-  SafeAreaView,
-  View,
-  StyleSheet,
-  Text,
-  Modal,
-  TextInput,
-} from "react-native";
+import { SafeAreaView, View, StyleSheet, Text, Image } from "react-native";
 import {
   useFonts,
   Poppins_100Thin,
@@ -20,6 +13,7 @@ import {
 import { AppColors } from "../../../utility/AppColors";
 import { Ionicons } from "@expo/vector-icons";
 import CommonButton from "../../common/CommonButton";
+import { FULL_WIDTH } from "../../../utility/Constant";
 
 const ConfirmID = (props: any) => {
   useFonts({
@@ -61,7 +55,7 @@ const ConfirmID = (props: any) => {
             styles.heading,
           ]}
         >
-          Confirm it’s you
+          Confirm It’s You
         </Text>
         <Text
           style={[
@@ -73,15 +67,25 @@ const ConfirmID = (props: any) => {
         >
           In the next step, we’ll ask you to take a quick scan of your face.
         </Text>
-      </View>
-      <View style={{ padding: 15 }}>
+        <Image
+          source={require("../../../assets/images/better_scan.png")}
+          style={{
+            height: 340,
+            width: FULL_WIDTH - 30,
+            borderRadius: 15,
+            marginTop: 30,
+            marginBottom: 20,
+          }}
+          resizeMode="contain"
+        />
         <Text
           style={[
             styles.lightText,
             {
-              fontFamily: "Poppins_500Medium",
+              fontFamily: "Poppins_600SemiBold",
               color: AppColors.blackColor,
               marginBottom: 10,
+              fontSize: 16,
             },
           ]}
         >
@@ -111,6 +115,8 @@ const ConfirmID = (props: any) => {
         >
           • {"  "}Hold your phone at an eye level
         </Text>
+      </View>
+      <View style={{ padding: 15 }}>
         <CommonButton
           title="Start Scan"
           pressHandler={() => props.navigation.navigate("FrameFace")}
@@ -125,7 +131,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: AppColors.whiteColor,
   },
-
   heading: {
     fontSize: 24,
     color: AppColors.blackColor,

@@ -59,8 +59,8 @@ const Religion = (props: any) => {
         <Question
           data={religion}
           setSelected={setSelectedReligion}
-          heading="Religion"
-          subheading="Select Religion"
+          heading="Your Religion?"
+          subheading="Select The Religion That Describes You Well"
           addSearch={false}
         >
           <OptionSelect

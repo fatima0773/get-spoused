@@ -4,7 +4,6 @@ import {
   View,
   StyleSheet,
   Text,
-  TouchableOpacity,
   FlatList,
   ImageBackground,
   Image,
@@ -20,11 +19,7 @@ import {
   Poppins_800ExtraBold,
 } from "@expo-google-fonts/poppins";
 import { AppColors } from "../../../utility/AppColors";
-import { Entypo } from "@expo/vector-icons";
-import RangeSlider, { Slider } from "react-native-range-slider-expo";
-import { TapGestureHandler } from "react-native-gesture-handler";
 import LikesHeader from "./components/LikesHeader";
-import { profession } from "../../../data/ProfileQuestions";
 import { AppImages } from "../../../utility/AppImages";
 import { ScrollView } from "react-native-virtualized-view";
 import { FULL_HEIGHT, FULL_WIDTH } from "../../../utility/Constant";
@@ -81,11 +76,9 @@ const Likes = (props: any) => {
   const renderLikedUser = ({ item }: any) => {
     return (
       <ImageBackground
-        // tintColor="rgba(0, 0, 0, 0.1)"
         resizeMode="cover"
         imageStyle={{
           borderRadius: 10,
-          // tintColor: "rgba(0, 0, 0, 0.1)",
         }}
         source={item.image}
         style={{
@@ -103,20 +96,21 @@ const Likes = (props: any) => {
           }}
         >
           <View
-            style={[styles.rowContainer, { margin: 5, marginVertical: 10 }]}
+            style={[styles.rowContainer, { margin: 12, marginVertical: 10 }]}
           >
             {item.justJoined && (
               <View
                 style={{
                   backgroundColor: AppColors.appThemeColor,
-                  padding: 5,
-                  borderRadius: 10,
+                  padding: 7,
+                  paddingHorizontal: 10,
+                  borderRadius: 100,
                 }}
               >
                 <Text
                   style={{
-                    fontFamily: "Poppins_400Regular",
-                    fontSize: 14,
+                    fontFamily: "Poppins_500Medium",
+                    fontSize: 10,
                     color: AppColors.blackColor,
                   }}
                 >
@@ -138,7 +132,7 @@ const Likes = (props: any) => {
           <View style={{ position: "absolute", bottom: 10, left: 10 }}>
             <Text
               style={{
-                fontFamily: "Poppins_600SemiBold",
+                fontFamily: "Poppins_700Bold",
                 fontSize: 16,
                 color: AppColors.whiteColor,
               }}
@@ -147,8 +141,8 @@ const Likes = (props: any) => {
             </Text>
             <Text
               style={{
-                fontFamily: "Poppins_500Medium",
-                fontSize: 14,
+                fontFamily: "Poppins_400Regular",
+                fontSize: 12,
                 color: AppColors.whiteColor,
                 marginVertical: 5,
               }}
@@ -158,7 +152,7 @@ const Likes = (props: any) => {
             <Text
               style={{
                 fontFamily: "Poppins_500Medium",
-                fontSize: 14,
+                fontSize: 10,
                 color: AppColors.whiteColor,
               }}
             >
@@ -167,8 +161,8 @@ const Likes = (props: any) => {
             <Text
               style={{
                 fontFamily: "Poppins_500Medium",
-                fontSize: 14,
-                color: AppColors.whiteColor,
+                fontSize: 10,
+                color: "rgba(255, 255, 255, 0.5)",
               }}
             >
               {item.time}
@@ -182,7 +176,10 @@ const Likes = (props: any) => {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView style={{ padding: 15 }}>
-        <LikesHeader likeCount={"99"} />
+        <LikesHeader
+          likeCount={"99"}
+          filterHandler={() => props.navigation.navigate("Filters")}
+        />
         <Text
           style={{
             fontFamily: "Poppins_400Regular",

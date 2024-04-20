@@ -49,17 +49,31 @@ const Filter = (props: any) => {
           {props.title}
         </Text>
         {props.incomplete ? (
-          <Text
-            style={[
-              styles.description,
-              {
-                fontFamily: "Poppins_600SemiBold",
-                color: AppColors.appThemeColor,
-              },
-            ]}
-          >
-            Complete Your Profile
-          </Text>
+          props.title === "Bio" ? (
+            <Text
+              style={[
+                styles.description,
+                {
+                  fontFamily: "Poppins_600SemiBold",
+                  color: AppColors.appThemeColor,
+                },
+              ]}
+            >
+              Add Bio
+            </Text>
+          ) : (
+            <Text
+              style={[
+                styles.description,
+                {
+                  fontFamily: "Poppins_600SemiBold",
+                  color: AppColors.appThemeColor,
+                },
+              ]}
+            >
+              Complete Your Profile
+            </Text>
+          )
         ) : (
           <Text
             style={[styles.description, { fontFamily: "Poppins_500Medium" }]}

@@ -14,21 +14,10 @@ const ChatStarter = () => {
       >
         Today
       </Text>
-      <Text
-        style={{
-          fontFamily: "Poppins_600SemiBold",
-          color: AppColors.blackColor,
-          fontSize: 16,
-          textAlign: "center",
-          marginTop: 20,
-        }}
-      >
-        Keep it Halal! {"\n"} Allah is Watching
-      </Text>
       <View
         style={{
           flexDirection: "row",
-          marginTop: 10,
+          marginTop: 50,
           justifyContent: "center",
           alignItems: "center",
         }}
@@ -59,7 +48,7 @@ const styles = StyleSheet.create({
     width: "100%",
     alignItems: "center",
     justifyContent: "center",
-    marginBottom: 50,
+    marginBottom: 45,
   },
 });
 export default ChatStarter;
