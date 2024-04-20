@@ -6,6 +6,7 @@ import {
   Text,
   Modal,
   TextInput,
+  Image,
 } from "react-native";
 import {
   useFonts,
@@ -20,6 +21,7 @@ import {
 import { AppColors } from "../../../utility/AppColors";
 import { Ionicons } from "@expo/vector-icons";
 import CommonButton from "../../common/CommonButton";
+import { FULL_WIDTH } from "../../../utility/Constant";
 const ScanID = (props: any) => {
   useFonts({
     Poppins_100Thin,
@@ -72,13 +74,21 @@ const ScanID = (props: any) => {
         <View
           style={{
             backgroundColor: AppColors.greyFill,
-            height: 200,
+            height: 240,
             borderRadius: 10,
             borderWidth: 1,
             borderColor: "rgba(0, 0, 0, 0.05)",
             marginTop: 30,
+            justifyContent: "center",
+            alignItems: "center",
           }}
-        />
+        >
+          <Image
+            source={require("../../../assets/images/scan_id.png")}
+            style={{ width: FULL_WIDTH - 70 }}
+            resizeMode="contain"
+          />
+        </View>
         <Text
           style={[
             styles.lightText,
@@ -88,7 +98,7 @@ const ScanID = (props: any) => {
             },
           ]}
         >
-          Scan your front page of ID Document
+          Scan Your Front Page Of ID Document
         </Text>
       </View>
       <View style={{ paddingHorizontal: 15 }}>

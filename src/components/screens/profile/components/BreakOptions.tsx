@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, StyleSheet, Text } from "react-native";
+import { View, StyleSheet, Text, TouchableOpacity } from "react-native";
 import { useFonts } from "expo-font";
 import { Poppins_500Medium } from "@expo-google-fonts/poppins";
 import { TextInput } from "react-native";
@@ -48,7 +48,8 @@ const BreakOptions = ({ options, setSelected }: any) => {
   return (
     <View style={{ marginVertical: 10 }}>
       {options.map((option: any, index: number) => (
-        <View
+        <TouchableOpacity
+          onPress={() => handleOptionChange(option)}
           key={index}
           style={[
             styles.inputContainer,
@@ -68,14 +69,14 @@ const BreakOptions = ({ options, setSelected }: any) => {
           <Checkbox
             style={styles.checkbox}
             value={selectedOption === option}
-            onValueChange={() => handleOptionChange(option)}
+            // onValueChange={() => handleOptionChange(option)}
             color={
               selectedOption === option
                 ? AppColors.blackColor
                 : AppColors.greyOutline
             }
           />
-        </View>
+        </TouchableOpacity>
       ))}
     </View>
   );

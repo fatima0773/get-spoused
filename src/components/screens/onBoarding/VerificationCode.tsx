@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { View, StyleSheet, SafeAreaView, Text } from "react-native";
-import BlackHeader from "../../common/BlackHeader";
+import { View, StyleSheet, SafeAreaView, Text, Image } from "react-native";
 import {
   useFonts,
   Poppins_400Regular,
@@ -10,6 +9,8 @@ import {
 import { AppColors } from "../../../utility/AppColors";
 import { OtpInput } from "react-native-otp-entry";
 import CommonButton from "../../common/CommonButton";
+import { Ionicons } from "@expo/vector-icons";
+import { AppImages } from "../../../utility/AppImages";
 const VerificationCode = (props: any) => {
   useFonts({
     Poppins_400Regular,
@@ -19,9 +20,27 @@ const VerificationCode = (props: any) => {
   const [otp, setOtp] = useState("");
   return (
     <SafeAreaView style={styles.container}>
-      <BlackHeader
-        backHandler={() => props.navigation.navigate("GetStarted")}
-      />
+      <View
+        style={{
+          flexDirection: "row",
+          alignItems: "center",
+          justifyContent: "center",
+          width: "100%",
+        }}
+      >
+        <Ionicons
+          style={{ position: "absolute", left: 15 }}
+          name="chevron-back"
+          size={24}
+          color={AppColors.blackColor}
+          onPress={() => props.navigation.navigate("SignUp")}
+        />
+        <Image
+          source={AppImages.LOGO_BLACK}
+          resizeMode="contain"
+          style={{ width: 75 }}
+        />
+      </View>
       <View style={{ padding: 20 }}>
         <Text
           style={{
@@ -64,6 +83,9 @@ const VerificationCode = (props: any) => {
           theme={{
             pinCodeContainerStyle: styles.otpContainerStyle,
             pinCodeTextStyle: styles.pinCodeText,
+            filledPinCodeContainerStyle: {
+              backgroundColor: AppColors.appThemeColor,
+            },
           }}
         />
 
@@ -91,7 +113,7 @@ const VerificationCode = (props: any) => {
             textAlign: "center",
           }}
         >
-          RESEND OTP
+          RESEND CODE
         </Text>
       </View>
     </SafeAreaView>
@@ -114,10 +136,11 @@ const styles = StyleSheet.create({
   },
   otpContainerStyle: {
     width: "18%",
-    borderColor: AppColors.appThemeColor,
+    borderColor: "rgba(0, 0, 0, 0.05)",
     marginVertical: 10,
+    backgroundColor: "rgba(250, 250, 250, 1)",
   },
-  pinCodeText: { color: AppColors.appThemeColor },
+  pinCodeText: { color: AppColors.blackColor },
 });
 
 export default VerificationCode;

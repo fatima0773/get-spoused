@@ -59,7 +59,7 @@ const Education = (props: any) => {
           data={education}
           setSelected={setSelectEducation}
           heading="What Is Your Highest Degree?"
-          subheading="Select your education level"
+          subheading="Select Your Education Level"
           addSearch={false}
         >
           <OptionSelect

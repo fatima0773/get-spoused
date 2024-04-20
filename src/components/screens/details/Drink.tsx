@@ -60,7 +60,7 @@ const Drink = (props: any) => {
           data={["Yes", "No"]}
           setSelected={setSelectedDrink}
           heading="Do You Drink?"
-          subheading="Select The Option That Describes You Well"
+          subheading="Select The Option That Best Describes You"
           addSearch={false}
         >
           <OptionSelect

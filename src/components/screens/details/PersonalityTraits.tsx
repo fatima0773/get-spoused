@@ -55,6 +55,7 @@ const PersonalityTraits = (props: any) => {
           color="black"
           style={{ position: "absolute", left: 0 }}
         />
+        <View style={{ marginBottom: 15 }} />
         <Personality />
       </ScrollView>
       <View style={{ padding: 15 }}>

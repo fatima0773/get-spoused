@@ -58,8 +58,8 @@ const Profession = (props: any) => {
         <Question
           data={profession}
           setSelected={setSelectProfession}
-          heading="Tell us your Profession"
-          subheading="Select your profession"
+          heading="What Is Your Profession?"
+          subheading="Select Your Profession"
           addSearch={true}
           placeholder="Search Profession "
         >

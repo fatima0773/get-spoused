@@ -11,10 +11,10 @@ import {
   Poppins_800ExtraBold,
 } from "@expo-google-fonts/poppins";
 import { AppColors } from "../../../utility/AppColors";
-import { Ionicons } from "@expo/vector-icons";
 import CommonButton from "../../common/CommonButton";
 import VerificationSteps from "./components/VerificationSteps";
 import { RouteProp, useRoute } from "@react-navigation/native";
+import CrossButton from "../../common/CrossButton";
 interface RouteParams {
   stepCompleted: number;
 }
@@ -34,14 +34,9 @@ const ConfirmIdentity = (props: any) => {
     <SafeAreaView style={styles.container}>
       <View style={{ padding: 15, flex: 1 }}>
         {/* header */}
-        <Ionicons
-          name="chevron-back"
-          size={34}
-          onPress={() => props.navigation.navigate("Profile")}
-          color="black"
-          style={{ position: "absolute", left: 0 }}
+        <CrossButton
+          buttonHandler={() => props.navigation.navigate("Profile")}
         />
-
         <Text
           style={[
             {
@@ -99,7 +94,7 @@ const styles = StyleSheet.create({
     fontSize: 24,
     color: AppColors.blackColor,
     marginVertical: 10,
-    marginTop: 60,
+    marginTop: 30,
   },
   lightText: {
     color: AppColors.secondaryText,

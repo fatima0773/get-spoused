@@ -60,8 +60,8 @@ const MaritalStatus = (props: any) => {
         <Question
           data={maritalStatus}
           setSelected={setStatus}
-          heading="Your Marital Status"
-          subheading="Select your marital status."
+          heading="What Is Your Marital Status"
+          subheading="Select Your Marital Status"
           addSearch={false}
         >
           <OptionSelect

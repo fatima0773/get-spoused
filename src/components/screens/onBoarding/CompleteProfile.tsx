@@ -133,7 +133,7 @@ const CompleteProfile = (props: any) => {
           <Question
             setSelected={setSelectProfession}
             heading="What Is Your Profession?"
-            subheading="Select your profession"
+            subheading="Select Your Profession"
             addSearch={true}
             placeholder={"Search Profession"}
           >
@@ -149,7 +149,7 @@ const CompleteProfile = (props: any) => {
           <Question
             setSelected={setSelectEthnicity}
             heading="Which Of These Best Describes You?"
-            subheading=" Select your ethnicity"
+            subheading=" Select Your Ethnicity"
             addSearch={true}
             placeholder={"Search Ethnicity"}
           >
@@ -167,7 +167,7 @@ const CompleteProfile = (props: any) => {
           <Question
             setSelected={setSelectEducation}
             heading="What Is Your Highest Degree?"
-            subheading="Select your education level"
+            subheading="Select Your Education Level"
             addSearch={false}
           >
             <OptionSelect
@@ -229,7 +229,7 @@ const CompleteProfile = (props: any) => {
           <Question
             setSelected={setSelectMaritalStatus}
             heading="What Is Your Marital Status"
-            subheading="Select Your Marital Status."
+            subheading="Select Your Marital Status"
             addSearch={false}
           >
             <OptionSelect
@@ -362,8 +362,8 @@ const CompleteProfile = (props: any) => {
         {currentStep === 11 && (
           <Question
             setSelected={setSelectedReligion}
-            heading="Your Religion?"
-            subheading="Select The Religion That Describes You Well"
+            heading="What Is Your Religion?"
+            subheading="Select The Religion That Best Describes You"
             addSearch={false}
           >
             <OptionSelect
@@ -380,7 +380,7 @@ const CompleteProfile = (props: any) => {
           <Question
             setSelected={setSelectedDrink}
             heading="Do You Drink?"
-            subheading="Select The Option That Describes You Well"
+            subheading="Select The Option That Best Describes You"
             addSearch={false}
           >
             <OptionSelect

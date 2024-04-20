@@ -41,7 +41,7 @@ const SignIn = (props: any) => {
             fontSize: 24,
           }}
         >
-          Continue with Email
+          Continue With Email
         </Text>
         <Text
           style={{
@@ -52,7 +52,7 @@ const SignIn = (props: any) => {
             marginBottom: 40,
           }}
         >
-          Enter your Email
+          Enter Your Email
         </Text>
         <InputField
           label={"Email"}

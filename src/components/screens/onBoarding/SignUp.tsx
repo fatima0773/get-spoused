@@ -42,7 +42,7 @@ const SignUp = (props: any) => {
             fontSize: 24,
           }}
         >
-          Create an account
+          Create An Account
         </Text>
         <Text
           style={{
@@ -53,7 +53,7 @@ const SignUp = (props: any) => {
             marginBottom: 40,
           }}
         >
-          Please fill the details and tap Create
+          Please Fill The Details And Tap Create
         </Text>
         <InputField
           label={"Email"}

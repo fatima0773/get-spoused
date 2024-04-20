@@ -222,7 +222,7 @@ const Registration = (props: any) => {
               marginVertical: 10,
             }}
           >
-            Please enter your full name.
+            Please Enter Your Full Name.
           </Text>
           <InputField
             placeholder="Write here"
@@ -252,7 +252,7 @@ const Registration = (props: any) => {
               marginVertical: 10,
             }}
           >
-            Add at least two photos
+            Add At Least Two Photos
           </Text>
           {/* blur photos */}
           <View style={styles.blurPhotoContainer}>

@@ -71,7 +71,7 @@ const DatingPreference = (props: any) => {
             marginVertical: 10,
           }}
         >
-          Who would you like to date
+          Who Would You Like To Date
         </Text>
         <OptionSelect
           options={["Male", "Female", "Other"]}

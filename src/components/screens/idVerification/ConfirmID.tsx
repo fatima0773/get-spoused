@@ -89,7 +89,7 @@ const ConfirmID = (props: any) => {
             },
           ]}
         >
-          For better scan results
+          For Better Scan Results
         </Text>
         <Text
           style={[
@@ -101,7 +101,7 @@ const ConfirmID = (props: any) => {
             },
           ]}
         >
-          • {"  "}Find an area with good lighting
+          • {"  "}Find An Area With Good Lighting
         </Text>
         <Text
           style={[
@@ -113,7 +113,7 @@ const ConfirmID = (props: any) => {
             },
           ]}
         >
-          • {"  "}Hold your phone at an eye level
+          • {"  "}Hold Your Phone At An Eye Level
         </Text>
       </View>
       <View style={{ padding: 15 }}>

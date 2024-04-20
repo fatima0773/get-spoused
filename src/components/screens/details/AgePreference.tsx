@@ -74,7 +74,7 @@ const AgePreference = (props: any) => {
               marginVertical: 10,
             }}
           >
-            Who would you like to date
+            Who Would You Like To Date
           </Text>
           <View style={[styles.rowContainer, { marginTop: 35 }]}>
             <Text

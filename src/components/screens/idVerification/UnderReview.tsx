@@ -72,7 +72,7 @@ const UnderReview = (props: any) => {
               marginVertical: 20,
             }}
           >
-            This may take a few seconds...
+            This May Take A Few Seconds...
           </Text>
           <Image
             source={AppImages.DOCUMENT_REVIEW}
@@ -83,8 +83,8 @@ const UnderReview = (props: any) => {
       </View>
       <View style={{ padding: 15 }}>
         <Text style={[{ fontFamily: "Poppins_400Regular" }, styles.lightText]}>
-          feel free to close this screen to get back to your matches. we will
-          notify you once you’ve been verified
+          Feel Free To Close This Screen To Get Back To{"\n"}Your Matches. We
+          Will Notify You Once You’ve{"\n"}Been Verified
         </Text>
 
         <TouchableOpacity

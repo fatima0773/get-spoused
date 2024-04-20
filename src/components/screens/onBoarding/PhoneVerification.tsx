@@ -1,13 +1,5 @@
 import React, { useState } from "react";
-import {
-  View,
-  StyleSheet,
-  SafeAreaView,
-  Text,
-  Image,
-  TouchableOpacity,
-} from "react-native";
-import BlackHeader from "../../common/BlackHeader";
+import { View, StyleSheet, SafeAreaView, Text, Image } from "react-native";
 import {
   useFonts,
   Poppins_400Regular,
@@ -20,9 +12,8 @@ import CommonButton from "../../common/CommonButton";
 import { RouteProp, useRoute } from "@react-navigation/native";
 import Modal from "react-native-modal";
 import { AppImages } from "../../../utility/AppImages";
-import { MaterialIcons } from "@expo/vector-icons";
-import { FULL_WIDTH } from "../../../utility/Constant";
 import CrossButton from "../../common/CrossButton";
+import { Ionicons } from "@expo/vector-icons";
 interface RouteParams {
   phone: string;
 }
@@ -41,9 +32,27 @@ const PhoneVerification = (props: any) => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <BlackHeader
-        backHandler={() => props.navigation.navigate("Registration")}
-      />
+      <View
+        style={{
+          flexDirection: "row",
+          alignItems: "center",
+          justifyContent: "center",
+          width: "100%",
+        }}
+      >
+        <Ionicons
+          style={{ position: "absolute", left: 15 }}
+          name="chevron-back"
+          size={24}
+          color={AppColors.blackColor}
+          onPress={() => props.navigation.navigate("Registration")}
+        />
+        <Image
+          source={AppImages.LOGO_BLACK}
+          resizeMode="contain"
+          style={{ width: 75 }}
+        />
+      </View>
       <View style={{ padding: 20 }}>
         <Text
           style={{
@@ -86,6 +95,9 @@ const PhoneVerification = (props: any) => {
           theme={{
             pinCodeContainerStyle: styles.otpContainerStyle,
             pinCodeTextStyle: styles.pinCodeText,
+            filledPinCodeContainerStyle: {
+              backgroundColor: AppColors.appThemeColor,
+            },
           }}
         />
 
@@ -205,10 +217,10 @@ const styles = StyleSheet.create({
   },
   otpContainerStyle: {
     width: "18%",
-    borderColor: AppColors.appThemeColor,
+    borderColor: "rgba(0, 0, 0, 0.05)",
     marginVertical: 10,
+    backgroundColor: "rgba(250, 250, 250, 1)",
   },
-  pinCodeText: { color: AppColors.appThemeColor },
+  pinCodeText: { color: AppColors.blackColor },
 });
-
 export default PhoneVerification;

@@ -92,7 +92,7 @@ export default function VerificationSteps(props: any) {
           <Text
             style={[{ fontFamily: "Poppins_500Medium" }, styles.standardText]}
           >
-            Photo of your ID document
+            Photo Of Your ID Document
           </Text>
         </View>
       </View>
@@ -126,7 +126,7 @@ export default function VerificationSteps(props: any) {
           <Text
             style={[{ fontFamily: "Poppins_500Medium" }, styles.standardText]}
           >
-            A quick scan of your face
+            A Quick Scan Of Your Face
           </Text>
         </View>
       </View>
