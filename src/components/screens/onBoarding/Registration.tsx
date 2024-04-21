@@ -100,9 +100,10 @@ const Registration = (props: any) => {
     } else if (currentStep === 4) {
       setCurrentStep(5);
     } else if (currentStep === 5) {
-      props.navigation.navigate("PhoneVerification", {
-        phone: "+1 213 33294 2332 444",
-      });
+      // props.navigation.navigate("PhoneVerification", {
+      //   phone: "+1 213 33294 2332 444",
+      // });
+      props.navigation.navigate("CompleteProfile");
     }
   };
 
@@ -394,6 +395,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: AppColors.whiteColor,
+    paddingTop: 15,
   },
   headerContainer: {
     flexDirection: "row",

@@ -1,15 +1,7 @@
 import React, { useState, useRef } from "react";
-import {
-  View,
-  StyleSheet,
-  Text,
-  FlatList,
-  TouchableOpacity,
-  Dimensions,
-  TextInput,
-} from "react-native";
+import { View, StyleSheet, Text, TextInput } from "react-native";
 import { AppColors } from "../../../../utility/AppColors";
-import { FULL_HEIGHT, FULL_WIDTH } from "../../../../utility/Constant";
+import { FULL_HEIGHT } from "../../../../utility/Constant";
 import {
   Poppins_400Regular,
   Poppins_600SemiBold,
@@ -70,6 +62,7 @@ const Biography = (props: any) => {
     input: {
       paddingHorizontal: s(5),
       width: "100%",
+      textAlignVertical: "top",
     },
   });
 

@@ -23,7 +23,9 @@ export default function Header(props: any) {
     Poppins_800ExtraBold,
   });
   const stepHandler = () => {
-    if (props.currentStep > 1) {
+    if (props.currentStep === 1) {
+      props.handlePreviousScreen();
+    } else if (props.currentStep > 1) {
       props.setCurrentStep(props.currentStep - 1);
     }
   };

@@ -126,7 +126,11 @@ const CompleteProfile = (props: any) => {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView>
-        <Header currentStep={currentStep} setCurrentStep={setCurrentStep} />
+        <Header
+          currentStep={currentStep}
+          setCurrentStep={setCurrentStep}
+          handlePreviousScreen={() => props.navigation.navigate("Registration")}
+        />
         <ProgressStatus currentStep={currentStep} />
         {/* profession */}
         {currentStep === 1 && (
