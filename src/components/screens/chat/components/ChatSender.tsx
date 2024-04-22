@@ -4,10 +4,19 @@ import { AppColors } from "../../../../utility/AppColors";
 import { Entypo } from "@expo/vector-icons";
 import { MaterialIcons } from "@expo/vector-icons";
 import CommonButton from "../../../common/CommonButton";
+import { FULL_WIDTH } from "../../../../utility/Constant";
 
 const ChatSender = (props: any) => {
   return (
-    <View>
+    <View
+      style={
+        {
+          // backgroundColor: "red",
+          // flex: 1,
+          // width: FULL_WIDTH,
+        }
+      }
+    >
       {props.isUnmatched ? (
         <View style={styles.inputContainer}>
           <View style={styles.input}>
@@ -96,7 +105,6 @@ const styles = StyleSheet.create({
   inputContainer: {
     flexDirection: "row",
     alignItems: "center",
-    paddingHorizontal: 16,
     paddingVertical: 12,
   },
   sendButton: {

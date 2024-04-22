@@ -27,6 +27,7 @@ import { ScrollView } from "react-native-virtualized-view";
 import { FontAwesome5 } from "@expo/vector-icons";
 import UserAction from "./components/UserAction";
 import { FontAwesome } from "@expo/vector-icons";
+import { FULL_WIDTH } from "../../../utility/Constant";
 
 const UserDetail = (props: any) => {
   useFonts({
@@ -102,7 +103,11 @@ const UserDetail = (props: any) => {
         <ImageBackground
           source={user.image}
           resizeMode="cover"
-          style={{ height: 594, marginTop: 20 }}
+          style={{
+            width: FULL_WIDTH,
+            marginTop: 20,
+            height: 530,
+          }}
         >
           <View style={styles.contentContainer}>
             <View>

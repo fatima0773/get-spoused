@@ -25,6 +25,7 @@ import {
   Poppins_700Bold,
   Poppins_800ExtraBold,
 } from "@expo-google-fonts/poppins";
+import { FULL_HEIGHT } from "../../../utility/Constant";
 
 const Home = (props: any) => {
   useFonts({
@@ -96,16 +97,21 @@ const Home = (props: any) => {
             flex: 1,
             width: "100%",
             height: "100%",
-            backgroundColor: AppColors.whiteColor,
+            // backgroundColor: AppColors.whiteColor,
+            // backgroundColor: "pink",
+            padding: FULL_HEIGHT,
+            backgroundColor: "transparent",
           }}
         >
           <Swiper
             onTapCard={() => props.navigation.navigate("UserDetail")}
             cards={users}
+            backgroundColor="transparent"
             renderCard={(user, index) => (
               <ImageBackground
                 imageStyle={{
                   borderRadius: 20,
+
                   // height: 594,
                   // overflow: "hidden",
                   // height: FULL_HEIGHT - 50,
@@ -226,6 +232,7 @@ const Home = (props: any) => {
               },
             }}
           />
+          <Text>djjskj</Text>
         </View>
       </ScrollView>
     </SafeAreaView>
@@ -249,6 +256,8 @@ const styles = StyleSheet.create({
     // overflow: "hidden",
     // height: FULL_HEIGHT - 50,
     // width: FULL_WIDTH - 40,
+    // backgroundColor: "white",
+    backgroundColor: "transparent",
   },
   text: {
     marginTop: 10,

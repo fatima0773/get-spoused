@@ -106,6 +106,7 @@ const GetStarted = (props: any) => {
           fontFamily: "Poppins_600SemiBold",
           fontSize: 14,
           marginTop: 20,
+          marginBottom: 20,
         }}
       >
         Continue with Email
