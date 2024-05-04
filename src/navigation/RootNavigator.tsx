@@ -82,16 +82,10 @@ const RootNavigator: React.FC = () => {
           component={VerificationCode}
           options={{ headerShown: false }}
         />
+
         <Stack.Screen
           name="OnboardingNavigator"
           component={OnboardingNavigator}
-          options={{
-            headerShown: false,
-          }}
-        />
-        <Stack.Screen
-          name="CompleteProfile"
-          component={CompleteProfile}
           options={{
             headerShown: false,
             gestureEnabled: false,
