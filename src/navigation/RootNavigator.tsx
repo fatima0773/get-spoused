@@ -44,6 +44,7 @@ import Bio from "../components/screens/details/Bio";
 import AgePreference from "../components/screens/details/AgePreference";
 import Interest from "../components/screens/details/Interests";
 import DatingPreference from "../components/screens/details/DatingPreference";
+import CompleteProfile from "../components/screens/onBoarding/CompleteProfile";
 
 const Stack = createStackNavigator();
 
@@ -84,7 +85,17 @@ const RootNavigator: React.FC = () => {
         <Stack.Screen
           name="OnboardingNavigator"
           component={OnboardingNavigator}
-          options={{ headerShown: false }}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="CompleteProfile"
+          component={CompleteProfile}
+          options={{
+            headerShown: false,
+            gestureEnabled: false,
+          }}
         />
         <Stack.Screen
           name="Match"

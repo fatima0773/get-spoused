@@ -53,6 +53,8 @@ const Registration = (props: any) => {
   const stepHandler = () => {
     if (currentStep > 1) {
       setCurrentStep(currentStep - 1);
+    } else {
+      props.navigation.navigate("VerificationCode");
     }
   };
 
