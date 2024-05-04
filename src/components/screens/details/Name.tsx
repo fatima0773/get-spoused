@@ -19,6 +19,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { RouteProp, useNavigation, useRoute } from "@react-navigation/native";
 import { InputField } from "../../common/InputField";
 import CommonButton from "../../common/CommonButton";
+import globalStyles from "../../../styles/globalStyles";
 interface RouteParams {
   back: number;
 }
@@ -47,7 +48,7 @@ const Name = (props: any) => {
   };
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={[styles.container, globalStyles.androidSafeArea]}>
       <ScrollView style={{ padding: 15 }}>
         <Ionicons
           name="chevron-back"

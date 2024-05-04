@@ -23,6 +23,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { FULL_HEIGHT } from "../../../utility/Constant";
 import { InputField } from "../../common/InputField";
 import CommonButton from "../../common/CommonButton";
+import globalStyles from "../../../styles/globalStyles";
 
 const Contact = (props: any) => {
   useFonts({
@@ -70,7 +71,7 @@ const Contact = (props: any) => {
     },
   });
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={[styles.container, globalStyles.androidSafeArea]}>
       <View style={{ padding: 15 }}>
         {/* header */}
         <Ionicons

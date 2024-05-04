@@ -23,6 +23,7 @@ import LikesHeader from "./components/LikesHeader";
 import { AppImages } from "../../../utility/AppImages";
 import { ScrollView } from "react-native-virtualized-view";
 import { FULL_HEIGHT, FULL_WIDTH } from "../../../utility/Constant";
+import globalStyles from "../../../styles/globalStyles";
 
 const Likes = (props: any) => {
   useFonts({
@@ -174,7 +175,7 @@ const Likes = (props: any) => {
   };
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={[styles.container, globalStyles.androidSafeArea]}>
       <ScrollView style={{ padding: 15 }}>
         <LikesHeader
           likeCount={"99"}

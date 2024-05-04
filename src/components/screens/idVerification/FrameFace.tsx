@@ -22,6 +22,7 @@ import { AppColors } from "../../../utility/AppColors";
 import { Ionicons } from "@expo/vector-icons";
 import CommonButton from "../../common/CommonButton";
 import { AppImages } from "../../../utility/AppImages";
+import globalStyles from "../../../styles/globalStyles";
 
 const FrameFace = (props: any) => {
   useFonts({
@@ -35,7 +36,7 @@ const FrameFace = (props: any) => {
   });
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={[styles.container, globalStyles.androidSafeArea]}>
       <View
         style={{
           alignItems: "center",

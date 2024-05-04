@@ -20,6 +20,7 @@ import {
   Poppins_800ExtraBold,
 } from "@expo-google-fonts/poppins";
 import Header from "../../common/Header";
+import globalStyles from "../../../styles/globalStyles";
 
 const ManageSubscription = (props: any) => {
   useFonts({
@@ -38,7 +39,7 @@ const ManageSubscription = (props: any) => {
     { date: "Feb 18, 2024", amount: 9, type: "Monthly", status: "paid" },
   ]);
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={[styles.container, globalStyles.androidSafeArea]}>
       <ScrollView>
         <Header
           title={"Manage Subscription"}

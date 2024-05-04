@@ -14,6 +14,7 @@ import { AppColors } from "../../../utility/AppColors";
 import { Ionicons } from "@expo/vector-icons";
 import CommonButton from "../../common/CommonButton";
 import BreakOptions from "./components/BreakOptions";
+import globalStyles from "../../../styles/globalStyles";
 
 const Break = (props: any) => {
   useFonts({
@@ -36,7 +37,7 @@ const Break = (props: any) => {
   const [selectedOption, setSelectedOption] = useState("");
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={[styles.container, globalStyles.androidSafeArea]}>
       <View style={{ padding: 15, flex: 1 }}>
         {/* header */}
         <Ionicons

@@ -22,6 +22,7 @@ import { AppImages } from "../../../utility/AppImages";
 import { FontAwesome } from "@expo/vector-icons";
 import { TextInput } from "react-native-gesture-handler";
 import { Feather } from "@expo/vector-icons";
+import globalStyles from "../../../styles/globalStyles";
 const Match = (props: any) => {
   useFonts({
     Poppins_100Thin,
@@ -34,7 +35,7 @@ const Match = (props: any) => {
   });
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={[styles.container, globalStyles.androidSafeArea]}>
       <TouchableOpacity
         onPress={() => props.navigation.navigate("Home")}
         style={{

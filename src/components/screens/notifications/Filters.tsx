@@ -24,6 +24,7 @@ import { Entypo } from "@expo/vector-icons";
 import RangeSlider from "react-native-range-slider-expo";
 import Filter from "./components/Filter";
 import { FULL_HEIGHT } from "../../../utility/Constant";
+import globalStyles from "../../../styles/globalStyles";
 
 const Filters = (props: any) => {
   useFonts({
@@ -43,7 +44,7 @@ const Filters = (props: any) => {
   ]);
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={[styles.container, globalStyles.androidSafeArea]}>
       <ScrollView>
         <View style={[styles.rowContainer, { padding: 15 }]}>
           <TouchableOpacity

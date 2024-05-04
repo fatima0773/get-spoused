@@ -19,6 +19,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { RouteProp, useRoute } from "@react-navigation/native";
 import Personality from "../onBoarding/components/Personality";
 import CommonButton from "../../common/CommonButton";
+import globalStyles from "../../../styles/globalStyles";
 interface RouteParams {
   back: number;
 }
@@ -46,7 +47,7 @@ const PersonalityTraits = (props: any) => {
   };
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={[styles.container, globalStyles.androidSafeArea]}>
       <ScrollView style={{ paddingTop: 15 }}>
         <Ionicons
           name="chevron-back"

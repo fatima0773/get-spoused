@@ -30,6 +30,7 @@ import React from "react";
 import OptionSelect from "../../common/OptionSelect";
 import RangeSlider from "react-native-range-slider-expo";
 import HeightInput from "./components/HeightInput";
+import globalStyles from "../../../styles/globalStyles";
 
 const CompleteProfile = (props: any) => {
   useFonts({
@@ -124,7 +125,7 @@ const CompleteProfile = (props: any) => {
   // ]);
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={[styles.container, globalStyles.androidSafeArea]}>
       <ScrollView>
         <Header
           currentStep={currentStep}

@@ -13,6 +13,7 @@ import {
 import { AppColors } from "../../../utility/AppColors";
 import Header from "../../common/Header";
 import Notification from "./components/notification";
+import globalStyles from "../../../styles/globalStyles";
 
 const Notifications = (props: any) => {
   useFonts({
@@ -52,7 +53,7 @@ const Notifications = (props: any) => {
     },
   ]);
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={[styles.container, globalStyles.androidSafeArea]}>
       <ScrollView>
         <Header
           title={"Notifications"}

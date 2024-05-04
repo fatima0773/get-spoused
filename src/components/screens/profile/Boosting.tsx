@@ -27,6 +27,7 @@ import {
 import { MaterialIcons } from "@expo/vector-icons";
 import CrossButton from "../../common/CrossButton";
 import { Feather } from "@expo/vector-icons";
+import globalStyles from "../../../styles/globalStyles";
 const Boosting = (props: any) => {
   useFonts({
     Poppins_100Thin,
@@ -43,7 +44,7 @@ const Boosting = (props: any) => {
     seconds: "01",
   });
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={[styles.container, globalStyles.androidSafeArea]}>
       <ScrollView style={{ padding: 15 }}>
         <TouchableOpacity
           onPress={() => props.navigation.navigate("Profile")}

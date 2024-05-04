@@ -15,6 +15,7 @@ import CommonButton from "../../common/CommonButton";
 import VerificationSteps from "./components/VerificationSteps";
 import { RouteProp, useRoute } from "@react-navigation/native";
 import CrossButton from "../../common/CrossButton";
+import globalStyles from "../../../styles/globalStyles";
 interface RouteParams {
   stepCompleted: number;
 }
@@ -31,7 +32,7 @@ const ConfirmIdentity = (props: any) => {
   const route = useRoute<RouteProp<Record<string, RouteParams>, string>>();
   const { stepCompleted } = route.params;
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={[styles.container, globalStyles.androidSafeArea]}>
       <View style={{ padding: 15, flex: 1 }}>
         {/* header */}
         <CrossButton

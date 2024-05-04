@@ -12,13 +12,12 @@ import {
 } from "@expo-google-fonts/poppins";
 import { AppColors } from "../../../utility/AppColors";
 import { ScrollView } from "react-native-virtualized-view";
-import Question from "../onBoarding/components/Question";
-import { ethnicOrigin } from "../../../data/ProfileQuestions";
 import React from "react";
 import { Ionicons } from "@expo/vector-icons";
 import { RouteProp, useRoute } from "@react-navigation/native";
 import RangeSlider from "react-native-range-slider-expo";
 import CommonButton from "../../common/CommonButton";
+import globalStyles from "../../../styles/globalStyles";
 
 interface RouteParams {
   back: number;
@@ -47,7 +46,7 @@ const AgePreference = (props: any) => {
   };
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={[styles.container, globalStyles.androidSafeArea]}>
       <ScrollView style={{ padding: 15 }}>
         <Ionicons
           name="chevron-back"

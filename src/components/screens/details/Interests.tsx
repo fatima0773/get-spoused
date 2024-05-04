@@ -17,6 +17,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { RouteProp, useRoute } from "@react-navigation/native";
 import Interests from "../onBoarding/components/Interests";
 import CommonButton from "../../common/CommonButton";
+import globalStyles from "../../../styles/globalStyles";
 interface RouteParams {
   back: number;
 }
@@ -45,7 +46,7 @@ const Interest = (props: any) => {
   };
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={[styles.container, globalStyles.androidSafeArea]}>
       <ScrollView>
         <Ionicons
           name="chevron-back"

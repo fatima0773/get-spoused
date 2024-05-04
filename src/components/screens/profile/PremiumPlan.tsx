@@ -24,6 +24,7 @@ import {
 } from "@expo-google-fonts/poppins";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import PlanSelect from "./components/PlanSelect";
+import globalStyles from "../../../styles/globalStyles";
 
 const PremiumPlan = (props: any) => {
   useFonts({
@@ -63,7 +64,7 @@ const PremiumPlan = (props: any) => {
     },
   ]);
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={[styles.container, globalStyles.androidSafeArea]}>
       <ScrollView style={{ padding: 15 }}>
         <View style={styles.headerContainer}>
           <View

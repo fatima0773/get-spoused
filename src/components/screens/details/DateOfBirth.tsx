@@ -17,6 +17,7 @@ import { RouteProp, useRoute } from "@react-navigation/native";
 import DateTimePicker from "@react-native-community/datetimepicker";
 import CommonButton from "../../common/CommonButton";
 import { Ionicons } from "@expo/vector-icons";
+import globalStyles from "../../../styles/globalStyles";
 interface RouteParams {
   back: number;
 }
@@ -50,7 +51,7 @@ const DateOfBirth = (props: any) => {
   };
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={[styles.container, globalStyles.androidSafeArea]}>
       <ScrollView style={{ padding: 15 }}>
         <Ionicons
           name="chevron-back"

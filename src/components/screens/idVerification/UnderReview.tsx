@@ -20,6 +20,7 @@ import {
   Poppins_800ExtraBold,
 } from "@expo-google-fonts/poppins";
 import { MaterialIcons } from "@expo/vector-icons";
+import globalStyles from "../../../styles/globalStyles";
 
 const UnderReview = (props: any) => {
   useFonts({
@@ -32,7 +33,7 @@ const UnderReview = (props: any) => {
     Poppins_800ExtraBold,
   });
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={[styles.container, globalStyles.androidSafeArea]}>
       <View
         style={{
           padding: 15,

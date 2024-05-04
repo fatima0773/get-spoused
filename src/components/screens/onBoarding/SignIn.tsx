@@ -15,6 +15,7 @@ import { AppColors } from "../../../utility/AppColors";
 import { InputField } from "../../common/InputField";
 import Checkbox from "expo-checkbox";
 import CommonButton from "../../common/CommonButton";
+import globalStyles from "../../../styles/globalStyles";
 const SignIn = (props: any) => {
   useFonts({
     Poppins_100Thin,
@@ -29,7 +30,7 @@ const SignIn = (props: any) => {
   const [password, setPassword] = useState("");
   const [isChecked, setChecked] = useState(false);
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={[styles.container, globalStyles.androidSafeArea]}>
       <BlackHeader
         backHandler={() => props.navigation.navigate("GetStarted")}
       />

@@ -26,6 +26,7 @@ import { AntDesign } from "@expo/vector-icons";
 import DateTimePicker from "@react-native-community/datetimepicker";
 import PhoneNumberInput from "./components/PhoneNumberInput";
 import OptionSelect from "../../common/OptionSelect";
+import globalStyles from "../../../styles/globalStyles";
 const Registration = (props: any) => {
   // fonts
   useFonts({
@@ -174,7 +175,7 @@ const Registration = (props: any) => {
     }
   };
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={[styles.container, globalStyles.androidSafeArea]}>
       {/* header */}
       <View style={styles.headerContainer}>
         <Ionicons

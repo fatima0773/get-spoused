@@ -28,6 +28,7 @@ import { FontAwesome5 } from "@expo/vector-icons";
 import UserAction from "./components/UserAction";
 import { FontAwesome } from "@expo/vector-icons";
 import { FULL_WIDTH } from "../../../utility/Constant";
+import globalStyles from "../../../styles/globalStyles";
 
 const UserDetail = (props: any) => {
   useFonts({
@@ -97,7 +98,7 @@ const UserDetail = (props: any) => {
   };
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={[styles.container, globalStyles.androidSafeArea]}>
       <ScrollView>
         <HomeHeader activeFilter={true} />
         <ImageBackground

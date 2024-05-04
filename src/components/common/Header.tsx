@@ -35,6 +35,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     padding: 15,
     alignItems: "center",
+    marginTop: 15,
   },
   contentWrapper: {
     padding: 15,

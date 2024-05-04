@@ -14,6 +14,7 @@ import Modal from "react-native-modal";
 import { AppImages } from "../../../utility/AppImages";
 import CrossButton from "../../common/CrossButton";
 import { Ionicons } from "@expo/vector-icons";
+import globalStyles from "../../../styles/globalStyles";
 interface RouteParams {
   phone: string;
 }
@@ -31,7 +32,7 @@ const PhoneVerification = (props: any) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={[styles.container, globalStyles.androidSafeArea]}>
       <View
         style={{
           flexDirection: "row",

@@ -21,6 +21,7 @@ import {
   Poppins_800ExtraBold,
 } from "@expo-google-fonts/poppins";
 import { MaterialIcons } from "@expo/vector-icons";
+import globalStyles from "../../../styles/globalStyles";
 
 const IDVerification = (props: any) => {
   useFonts({
@@ -38,7 +39,7 @@ const IDVerification = (props: any) => {
     seconds: "01",
   });
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={[styles.container, globalStyles.androidSafeArea]}>
       <ScrollView style={{ padding: 15 }}>
         <MaterialIcons
           onPress={() => props.navigation.navigate("Profile")}

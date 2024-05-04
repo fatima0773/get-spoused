@@ -19,6 +19,7 @@ import {
   Poppins_600SemiBold,
 } from "@expo-google-fonts/poppins";
 import { EvilIcons } from "@expo/vector-icons";
+import globalStyles from "../../styles/globalStyles";
 
 const GetStarted = (props: any) => {
   useFonts({
@@ -28,7 +29,7 @@ const GetStarted = (props: any) => {
     Poppins_600SemiBold,
   });
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={[styles.container, globalStyles.androidSafeArea]}>
       <Image
         source={AppImages.GET_STARTED_HEADER}
         style={styles.headerImage}

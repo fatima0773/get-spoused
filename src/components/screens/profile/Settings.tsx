@@ -24,6 +24,7 @@ import Filter from "../notifications/components/Filter";
 import SwitchSetting from "./components/SwitchSetting";
 import CommonButton from "../../common/CommonButton";
 import { FULL_HEIGHT } from "../../../utility/Constant";
+import globalStyles from "../../../styles/globalStyles";
 
 const Settings = (props: any) => {
   useFonts({
@@ -42,7 +43,7 @@ const Settings = (props: any) => {
   const [isLogout, setIsLogout] = useState(false);
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={[styles.container, globalStyles.androidSafeArea]}>
       <ScrollView style={{ padding: 15 }}>
         {/* header */}
         <View

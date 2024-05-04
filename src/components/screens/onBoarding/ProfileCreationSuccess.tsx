@@ -19,6 +19,7 @@ import Header from "./components/Header";
 import { AppImages } from "../../../utility/AppImages";
 import { FULL_HEIGHT, FULL_WIDTH } from "../../../utility/Constant";
 import CommonButton from "../../common/CommonButton";
+import globalStyles from "../../../styles/globalStyles";
 
 const ProfileCreationSuccess = (props: any) => {
   useFonts({
@@ -28,7 +29,7 @@ const ProfileCreationSuccess = (props: any) => {
     Poppins_500Medium,
   });
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={[styles.container, globalStyles.androidSafeArea]}>
       <ScrollView
         contentContainerStyle={{
           alignItems: "center",

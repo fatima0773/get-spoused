@@ -14,6 +14,7 @@ import { AppColors } from "../../../utility/AppColors";
 import { Ionicons } from "@expo/vector-icons";
 import CommonButton from "../../common/CommonButton";
 import { FULL_WIDTH } from "../../../utility/Constant";
+import globalStyles from "../../../styles/globalStyles";
 
 const ConfirmID = (props: any) => {
   useFonts({
@@ -36,7 +37,7 @@ const ConfirmID = (props: any) => {
   const [selectedOption, setSelectedOption] = useState("");
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={[styles.container, globalStyles.androidSafeArea]}>
       <View style={{ padding: 15, flex: 1 }}>
         {/* header */}
         <Ionicons

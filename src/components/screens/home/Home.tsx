@@ -26,6 +26,7 @@ import {
   Poppins_800ExtraBold,
 } from "@expo-google-fonts/poppins";
 import { FULL_HEIGHT } from "../../../utility/Constant";
+import globalStyles from "../../../styles/globalStyles";
 
 const Home = (props: any) => {
   useFonts({
@@ -84,7 +85,7 @@ const Home = (props: any) => {
     setCurrentIndex(currentIndex + 1);
   };
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={[styles.container, globalStyles.androidSafeArea]}>
       <ScrollView>
         <HomeHeader
           showNotification={true}

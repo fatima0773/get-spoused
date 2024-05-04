@@ -18,6 +18,7 @@ import { RouteProp, useRoute } from "@react-navigation/native";
 import { InputField } from "../../common/InputField";
 import CommonButton from "../../common/CommonButton";
 import HeightInput from "../onBoarding/components/HeightInput";
+import globalStyles from "../../../styles/globalStyles";
 interface RouteParams {
   back: number;
 }
@@ -46,7 +47,7 @@ const Height = (props: any) => {
     }
   };
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={[styles.container, globalStyles.androidSafeArea]}>
       <ScrollView style={{ padding: 15 }}>
         <Ionicons
           name="chevron-back"

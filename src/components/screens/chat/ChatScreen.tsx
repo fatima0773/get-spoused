@@ -32,6 +32,7 @@ import { MaterialIcons } from "@expo/vector-icons";
 import { FULL_HEIGHT } from "../../../utility/Constant";
 import CommonButton from "../../common/CommonButton";
 import OptionSelect from "../../common/OptionSelect";
+import globalStyles from "../../../styles/globalStyles";
 const ChatScreen = (props: any) => {
   useFonts({
     Poppins_100Thin,
@@ -118,7 +119,7 @@ const ChatScreen = (props: any) => {
   );
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={[styles.container, globalStyles.androidSafeArea]}>
       <ChatHeader
         goBack={() => props.navigation.navigate("Tab")}
         menuHandler={() => setOpenMenu(true)}

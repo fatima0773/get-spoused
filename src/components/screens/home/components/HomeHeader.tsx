@@ -91,6 +91,7 @@ const styles = StyleSheet.create({
     width: "100%",
     flexDirection: "row",
     justifyContent: "space-between",
+    marginTop: 20,
   },
   iconContainer: {
     backgroundColor: AppColors.greyFill,

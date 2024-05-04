@@ -15,6 +15,7 @@ import { ScrollView } from "react-native-virtualized-view";
 import { SearchBar } from "../../common/SearchBar";
 import { AppImages } from "../../../utility/AppImages";
 import ChatOverview from "./components/ChatOverview";
+import globalStyles from "../../../styles/globalStyles";
 
 const Likes = (props: any) => {
   useFonts({
@@ -81,7 +82,7 @@ const Likes = (props: any) => {
   ]);
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={[styles.container, globalStyles.androidSafeArea]}>
       <ScrollView style={{ padding: 15 }}>
         <Text
           style={{

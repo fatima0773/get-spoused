@@ -11,6 +11,7 @@ import { OtpInput } from "react-native-otp-entry";
 import CommonButton from "../../common/CommonButton";
 import { Ionicons } from "@expo/vector-icons";
 import { AppImages } from "../../../utility/AppImages";
+import globalStyles from "../../../styles/globalStyles";
 const VerificationCode = (props: any) => {
   useFonts({
     Poppins_400Regular,
@@ -19,17 +20,18 @@ const VerificationCode = (props: any) => {
   });
   const [otp, setOtp] = useState("");
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={[styles.container, globalStyles.androidSafeArea]}>
       <View
         style={{
           flexDirection: "row",
           alignItems: "center",
           justifyContent: "center",
           width: "100%",
+          paddingTop: 10,
         }}
       >
         <Ionicons
-          style={{ position: "absolute", left: 15 }}
+          style={{ position: "absolute", left: 15, top: 10 }}
           name="chevron-back"
           size={24}
           color={AppColors.blackColor}
@@ -124,6 +126,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: AppColors.whiteColor,
+    paddingTop: 10,
   },
   checkBoxContainer: {
     flexDirection: "row",

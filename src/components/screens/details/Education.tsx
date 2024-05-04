@@ -19,6 +19,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { RouteProp, useRoute } from "@react-navigation/native";
 import CommonButton from "../../common/CommonButton";
 import OptionSelect from "../../common/OptionSelect";
+import globalStyles from "../../../styles/globalStyles";
 interface RouteParams {
   back: number;
 }
@@ -46,7 +47,7 @@ const Education = (props: any) => {
     }
   };
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={[styles.container, globalStyles.androidSafeArea]}>
       <ScrollView style={{ padding: 5 }}>
         <Ionicons
           name="chevron-back"

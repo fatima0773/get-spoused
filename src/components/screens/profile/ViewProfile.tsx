@@ -32,6 +32,7 @@ import UserAction from "../home/components/UserAction";
 import { Ionicons } from "@expo/vector-icons";
 import ProfileDetails from "./components/ProfileDetails";
 import EditProfile from "./components/EditProfile";
+import globalStyles from "../../../styles/globalStyles";
 
 const ViewProfile = (props: any) => {
   useFonts({
@@ -47,7 +48,7 @@ const ViewProfile = (props: any) => {
   const [isEdit, setIsEdit] = useState(false);
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={[styles.container, globalStyles.androidSafeArea]}>
       <ScrollView>
         {/* header */}
         <View style={[styles.rowContainer, { paddingHorizontal: 15 }]}>

@@ -12,6 +12,10 @@ import {
   Poppins_800ExtraBold,
 } from "@expo-google-fonts/poppins";
 import RootNavigator from "./src/navigation/RootNavigator";
+import {
+  SafeAreaProvider,
+  useSafeAreaInsets,
+} from "react-native-safe-area-context";
 
 export default function App() {
   useFonts({
@@ -23,6 +27,7 @@ export default function App() {
     Poppins_700Bold,
     Poppins_800ExtraBold,
   });
+  // const insets = useSafeAreaInsets();
   const styles = StyleSheet.create({
     container: {
       flex: 1,

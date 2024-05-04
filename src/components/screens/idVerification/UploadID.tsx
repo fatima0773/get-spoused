@@ -24,6 +24,7 @@ import CommonButton from "../../common/CommonButton";
 import { IssueCountry } from "./components/IssueCountry";
 import UploadOption from "./components/UploadOption";
 import React from "react";
+import globalStyles from "../../../styles/globalStyles";
 
 const UploadID = (props: any) => {
   useFonts({
@@ -46,7 +47,7 @@ const UploadID = (props: any) => {
   const [openModal, setOpenModal] = useState(false);
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={[styles.container, globalStyles.androidSafeArea]}>
       <View style={{ padding: 15, flex: 1 }}>
         {/* header */}
         <Ionicons
