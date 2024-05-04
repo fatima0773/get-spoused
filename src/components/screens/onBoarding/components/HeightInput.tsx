@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import {
   View,
   StyleSheet,
   FlatList,
-  Dimensions,
   TouchableOpacity,
+  Dimensions,
 } from "react-native";
 import { Text } from "react-native";
 import { AppColors } from "../../../../utility/AppColors";
@@ -14,31 +14,42 @@ import {
   Poppins_700Bold,
   Poppins_600SemiBold,
 } from "@expo-google-fonts/poppins";
-import { FULL_WIDTH } from "../../../../utility/Constant";
 
 const HeightInput = () => {
   const [heightUnit, setHeightUnit] = useState("cm");
   const [scrollX, setScrollX] = useState(0);
   const [centerIndex, setCenterIndex] = useState(2);
+  const SCREEN_WIDTH = Dimensions.get("window").width;
   const ITEM_WIDTH = 80;
   useFonts({ Poppins_500Medium, Poppins_700Bold, Poppins_600SemiBold });
 
   useEffect(() => {
     const index = Math.round(scrollX / ITEM_WIDTH);
-    const centerOffset = Math.floor(FULL_WIDTH / (2 * ITEM_WIDTH));
-    setCenterIndex(index + centerOffset);
+    const centerOffset = Math.floor(SCREEN_WIDTH / 2 - ITEM_WIDTH / 2);
+    setCenterIndex(index + centerOffset / ITEM_WIDTH);
   }, [scrollX]);
 
-  const renderItem = ({ item, index }: any) => {
-    const isCentered = index === centerIndex;
+  const renderItem = ({ item }) => {
+    const itemIndex = item - 120;
+    const isCentered =
+      itemIndex === Math.round(centerIndex - 1) &&
+      centerIndex >= 0 &&
+      centerIndex <= 30;
 
     return (
-      <View
-        key={item}
+      <TouchableOpacity
+        onPress={() => {
+          // Scroll to the selected item
+          flatListRef.current?.scrollToIndex({
+            index: itemIndex,
+            animated: true,
+          });
+        }}
         style={{
           flexDirection: "row",
           justifyContent: "space-evenly",
           alignItems: "flex-end",
+          marginTop: 40,
         }}
       >
         <View
@@ -59,19 +70,17 @@ const HeightInput = () => {
           </Text>
           <View
             style={{
-              width: isCentered ? 4 : 1,
-              height: isCentered ? 180 : 120,
-              backgroundColor: isCentered
-                ? AppColors.appThemeColor
-                : AppColors.greyOutline,
+              width: 2,
+              height: 120,
+              backgroundColor: AppColors.greyOutline,
               borderRadius: 30,
             }}
           />
         </View>
         <View
           style={{
-            width: 1,
-            height: isCentered ? 100 : 90,
+            width: 2,
+            height: 90,
             backgroundColor: AppColors.greyOutline,
             marginHorizontal: 10,
             borderRadius: 30,
@@ -79,8 +88,8 @@ const HeightInput = () => {
         />
         <View
           style={{
-            width: 1,
-            height: isCentered ? 100 : 90,
+            width: 2,
+            height: 90,
             backgroundColor: AppColors.greyOutline,
             marginHorizontal: 10,
             borderRadius: 30,
@@ -88,16 +97,18 @@ const HeightInput = () => {
         />
         <View
           style={{
-            width: 1,
-            height: isCentered ? 100 : 90,
+            width: 2,
+            height: 90,
             backgroundColor: AppColors.greyOutline,
             marginHorizontal: 10,
             borderRadius: 30,
           }}
         />
-      </View>
+      </TouchableOpacity>
     );
   };
+
+  const flatListRef = useRef<FlatList>(null);
 
   return (
     <View style={{ marginTop: 30 }}>
@@ -105,7 +116,6 @@ const HeightInput = () => {
         style={{
           flexDirection: "row",
           justifyContent: "space-between",
-          flex: 1,
           padding: 5,
           backgroundColor: AppColors.greyFill,
           borderRadius: 200,
@@ -151,10 +161,12 @@ const HeightInput = () => {
           </Text>
         </TouchableOpacity>
       </View>
+
       <FlatList
+        ref={flatListRef}
         horizontal
         data={Array.from({ length: 30 }, (_, index) => index + 120)}
-        renderItem={renderItem}
+        renderItem={({ item }) => renderItem({ item })}
         keyExtractor={(item, index) => index.toString()}
         onScroll={(event) => {
           setScrollX(event.nativeEvent.contentOffset.x);
@@ -162,9 +174,22 @@ const HeightInput = () => {
         scrollEventThrottle={160}
         showsHorizontalScrollIndicator={false}
       />
+      <View
+        style={{
+          width: 4,
+          height: 120,
+          backgroundColor: AppColors.appThemeColor,
+          borderRadius: 30,
+          position: "absolute",
+          left: "50%",
+          bottom: 0,
+          marginLeft: -2,
+        }}
+      />
     </View>
   );
 };
+
 const styles = StyleSheet.create({
   option: {
     flex: 1,
@@ -178,4 +203,5 @@ const styles = StyleSheet.create({
     backgroundColor: AppColors.appThemeColor,
   },
 });
+
 export default HeightInput;
