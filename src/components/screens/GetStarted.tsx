@@ -97,24 +97,28 @@ const GetStarted = (props: any) => {
         </Text>
       </TouchableOpacity>
 
-      {/* continue with email */}
-      <Text
-        onPress={() => {
-          props.navigation.navigate("SignIn");
-        }}
+      <View
         style={{
-          color: AppColors.blackColor,
-          fontFamily: "Poppins_600SemiBold",
-          fontSize: 14,
-          marginTop: 20,
-          marginBottom: 20,
+          alignItems: "center",
+          position: "absolute",
+          bottom: 20,
         }}
       >
-        Continue with Email
-      </Text>
+        <Text
+          onPress={() => {
+            props.navigation.navigate("SignIn");
+          }}
+          style={{
+            color: AppColors.blackColor,
+            fontFamily: "Poppins_600SemiBold",
+            fontSize: 14,
+            // marginTop: 20,
+            marginVertical: 20,
+          }}
+        >
+          Continue with Email
+        </Text>
 
-      {/* Create an account */}
-      <View style={{ position: "absolute", bottom: 40 }}>
         <Text
           onPress={() => {
             props.navigation.navigate("SignUp");
@@ -125,7 +129,7 @@ const GetStarted = (props: any) => {
             fontSize: 14,
             textDecorationLine: "underline",
             textAlign: "center",
-            marginBottom: 30,
+            marginVertical: 30,
           }}
         >
           Create an account

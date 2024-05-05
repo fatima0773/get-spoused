@@ -6,6 +6,7 @@ import {
   Text,
   Modal,
   TextInput,
+  ScrollView,
 } from "react-native";
 import {
   useFonts,
@@ -48,7 +49,7 @@ const UploadID = (props: any) => {
 
   return (
     <SafeAreaView style={[styles.container, globalStyles.androidSafeArea]}>
-      <View style={{ padding: 15, flex: 1 }}>
+      <ScrollView style={{ padding: 15, flex: 1 }}>
         {/* header */}
         <Ionicons
           name="chevron-back"
@@ -103,8 +104,11 @@ const UploadID = (props: any) => {
         >
           OR
         </Text>
-        <UploadOption content="I don’t have any of these documents" />
-      </View>
+        <UploadOption
+          content="I don’t have any of these documents"
+          pressHandler={() => setOpenModal(true)}
+        />
+      </ScrollView>
       <View style={{ padding: 15 }}>
         <Text
           onPress={() => {

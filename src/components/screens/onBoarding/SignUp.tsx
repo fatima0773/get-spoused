@@ -112,7 +112,7 @@ const SignUp = (props: any) => {
         />
       </View>
       {/* terms and conditions */}
-      <View style={{ position: "absolute", bottom: 40, width: "100%" }}>
+      <View style={{ position: "absolute", bottom: 20, width: "100%" }}>
         <Text
           style={{
             color: AppColors.secondaryText,
