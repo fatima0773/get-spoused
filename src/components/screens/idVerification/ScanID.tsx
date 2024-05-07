@@ -7,6 +7,7 @@ import {
   Modal,
   TextInput,
   Image,
+  TouchableOpacity,
 } from "react-native";
 import {
   useFonts,
@@ -23,6 +24,8 @@ import { Ionicons } from "@expo/vector-icons";
 import CommonButton from "../../common/CommonButton";
 import { FULL_WIDTH } from "../../../utility/Constant";
 import globalStyles from "../../../styles/globalStyles";
+import { Button } from "react-native";
+import { Camera, CameraType } from "expo-camera";
 const ScanID = (props: any) => {
   useFonts({
     Poppins_100Thin,
@@ -42,7 +45,31 @@ const ScanID = (props: any) => {
     "Other",
   ];
   const [selectedOption, setSelectedOption] = useState("");
+  const [type, setType] = useState(CameraType.back);
+  const [permission, requestPermission] = Camera.useCameraPermissions();
 
+  // if (!permission) {
+  //   // Camera permissions are still loading
+  //   return <View />;
+  // }
+
+  // if (!permission.granted) {
+  //   // Camera permissions are not granted yet
+  //   return (
+  //     <View style={{ marginTop: 300 }}>
+  //       <Text style={{ textAlign: "center" }}>
+  //         We need your permission to show the camera
+  //       </Text>
+  //       <Button onPress={requestPermission} title="grant permission" />
+  //     </View>
+  //   );
+  // }
+
+  function toggleCameraType() {
+    setType((current) =>
+      current === CameraType.back ? CameraType.front : CameraType.back
+    );
+  }
   return (
     <SafeAreaView style={[styles.container, globalStyles.androidSafeArea]}>
       <View
@@ -84,11 +111,21 @@ const ScanID = (props: any) => {
             alignItems: "center",
           }}
         >
-          <Image
+          {/* <Image
             source={require("../../../assets/images/scan_id.png")}
             style={{ width: FULL_WIDTH - 70 }}
             resizeMode="contain"
-          />
+          /> */}
+          <Camera style={styles.camera} type={type}>
+            <View style={styles.buttonContainer}>
+              <TouchableOpacity
+                style={styles.button}
+                onPress={toggleCameraType}
+              >
+                <Text style={styles.text}>Flip Camera</Text>
+              </TouchableOpacity>
+            </View>
+          </Camera>
         </View>
         <Text
           style={[
@@ -127,6 +164,27 @@ const styles = StyleSheet.create({
   lightText: {
     color: AppColors.secondaryText,
     fontSize: 14,
+  },
+  camera: {
+    flex: 1,
+  },
+  buttonContainer: {
+    flex: 1,
+    flexDirection: "row",
+    backgroundColor: "transparent",
+    margin: 64,
+    height: 240,
+    // width: "100%",
+  },
+  button: {
+    flex: 1,
+    alignSelf: "flex-end",
+    alignItems: "center",
+  },
+  text: {
+    fontSize: 24,
+    fontWeight: "bold",
+    color: "white",
   },
 });
 export default ScanID;
